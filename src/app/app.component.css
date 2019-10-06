@@ -55,7 +55,7 @@
 #cardName {
   position: absolute;
   left: 90px;
-  top: 8px;
+  top: 4px;
   z-index: 1000;
   color: white;
   font-family: Verdana, serif;
@@ -75,16 +75,24 @@
 }
 
 #character {
-  right: 40px;
-  top: 577px;
+  right: 42px;
+  top: 575px;
 }
 
 #special-trait {
-  right: 40px;
-  top: 592px;
+  right: 42px;
+  top: 590px;
 }
 
 #era {
-  right: 48px;
-  top: 607px;
+  right: 52px;
+  top: 605px;
+}
+
+#card-art {
+  position: absolute;
+  z-index: -9000;
+  width: 472.5px;
+  height: 660px;
+  border-radius: 25px;
 }

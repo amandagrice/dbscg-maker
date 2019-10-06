@@ -7,13 +7,24 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   frameResource: string = "../assets/black_card_frame.png";
-  cardName: string = 'Name';
-  character: string = 'Character';
-  specialTrait: string = 'Trait';
-  era: string = 'Era';
+  cardName: string;
+  cardArt: any;
+  character: string;
+  specialTrait: string;
+  era: string;
 
   swapFrameColor(colorSrc) {
     this.frameResource = colorSrc;
+  }
+
+  setCardArt(event) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => {
+        this.cardArt = event.target['result'];
+      }
+    }
   }
 
 }
