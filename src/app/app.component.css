@@ -11,11 +11,11 @@
 
 #form-content, div {
   margin-bottom: 30px;
+  margin-left: 10px;
 }
 
 #card-display-holder {
   float: left;
-  width: 50%;
   display: inline-block;
 }
 
@@ -109,8 +109,33 @@
 .combo-power {
   position: absolute;
   z-index: 1000;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   width: 472.5px;
   height: 660px;
+}
+
+#skill {
+  font-family: Avenir, sans-serif;
+  -webkit-text-stroke: 1px black;
+  font-size: 14px;
+  font-weight: bolder;
+  color: white;
+  position: absolute;
+  z-index: 9001;
+  top: 460px;
+  right: 22px;
+  width: 408px;
+  height: 110px;
+  white-space: pre-wrap;
+}
+
+.blue-skill {
+  background-color: deepskyblue !important;
+  font-family: Georgia, sans-serif !important;
+  color: white !important;
+  font-weight: normal !important;
+  -webkit-text-stroke: 0 black !important;
+  padding-left: 4px;
+  padding-right: 4px;
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 
 interface Combo {
   name: string;
@@ -9,7 +9,8 @@ interface Combo {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
   cardColor: string = 'black';
@@ -19,12 +20,13 @@ export class AppComponent {
   character: string;
   specialTrait: string;
   era: string;
-  showCardTextBox: boolean = false;
+  showCardTextBox: boolean = true;
   comboPower: Combo = {
     name:'0 cost + 5,000',
     cost: 0,
     power: 5000
   };
+  skill: string;
 
   comboOptions = [
     {name:'0 cost + 5,000',  cost: 0, power: 5000},
@@ -46,6 +48,14 @@ export class AppComponent {
       reader.onload = (event) => {
         this.cardArt = event.target['result'];
       }
+    }
+  }
+
+  parseForKeywords() {
+    if (this.skill.indexOf("Auto") > -1) {
+      document.getElementById("skill").innerHTML =
+        this.skill.replace(/Auto/g,
+          '<span class="blue-skill">Auto</span>');
     }
   }
 

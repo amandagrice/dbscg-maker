@@ -87,6 +87,21 @@
     <p-dropdown [options]="comboOptions" [(ngModel)]="comboPower" optionLabel="name"></p-dropdown>
   </div>
 
+  <div>
+    <span class="ui-float-label">
+      <textarea
+        id="card-text-input"
+        [(ngModel)]="skill"
+        rows="5" cols="30"
+        pInputTextarea
+        autoResize="autoResize">
+      </textarea>
+      <label for="card-text-input">Skills</label>
+    </span>
+  </div>
+
+  <button pButton type="button" label="Highlight Keywords" class="ui-button-rounded" (click)="parseForKeywords()"></button>
+
 </div>
 
 <div id="card-display-holder">
@@ -98,6 +113,7 @@
     <div *ngIf="cardArt">
       <img id="card-art" [src]="cardArt" height="200" alt="User Entered Art">
     </div>
+    <div id="skill">{{this.skill}}</div>
     <img src='{{frameResource}}' alt="Card Frame" width="100%" height="100%">
     <img *ngIf="showCardTextBox && cardColor === 'black'"   class="card-textbox" src='../assets/layers/black/box.png' alt="Card Textbox">
     <img *ngIf="showCardTextBox && cardColor === 'blue'"    class="card-textbox" src='../assets/layers/blue/box.png' alt="Card Textbox">
