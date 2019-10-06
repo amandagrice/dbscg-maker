@@ -9,7 +9,11 @@
   min-width: 500px;
 }
 
-#card-display {
+#form-content, div {
+  margin-bottom: 30px;
+}
+
+#card-display-holder {
   float: left;
   width: 50%;
   display: inline-block;
@@ -42,3 +46,21 @@
   border-color: #a4090c;
 }
 
+#card {
+  width: 472.5px;
+  height: 660px;
+  position: relative;
+}
+
+#cardName {
+  position: absolute;
+  left: 90px;
+  top: 8px;
+  z-index: 1000;
+  color: white;
+  font-family: Verdana, serif;
+  font-size: 35px;
+  font-style: italic;
+  font-style: italic;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}

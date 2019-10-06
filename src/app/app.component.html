@@ -1,25 +1,44 @@
 <h1>Dragon Ball Super Card Game Maker</h1>
 
 <div id="form-content">
-  <span id="color-buttons">
-    <button id="black-btn" pButton type="button" label="Black" class="ui-button-rounded"
-            (click)="swapFrameColor('../assets/black_card_frame.png')">
-    </button>
-    <button id="blue-btn" pButton type="button" label="Blue" class="ui-button-rounded"
-            (click)="swapFrameColor('../assets/blue_card_frame.png')">
-    </button>
-    <button id="green-btn" pButton type="button" label="Green" class="ui-button-rounded"
-            (click)="swapFrameColor('../assets/green_card_frame.png')">
-    </button>
-    <button id="red-btn" pButton type="button" label="Red" class="ui-button-rounded"
-            (click)="swapFrameColor('../assets/red_card_frame.png')">
-    </button>
-    <button id="yellow-btn" pButton type="button" label="Yellow" class="ui-button-rounded"
-            (click)="swapFrameColor('../assets/yellow_card_frame.png')">
-    </button>
-  </span>
+  <div>
+    <span id="color-buttons">
+      <button id="black-btn" pButton type="button" label="Black" class="ui-button-rounded"
+              (click)="swapFrameColor('../assets/black_card_frame.png')">
+      </button>
+      <button id="blue-btn" pButton type="button" label="Blue" class="ui-button-rounded"
+              (click)="swapFrameColor('../assets/blue_card_frame.png')">
+      </button>
+      <button id="green-btn" pButton type="button" label="Green" class="ui-button-rounded"
+              (click)="swapFrameColor('../assets/green_card_frame.png')">
+      </button>
+      <button id="red-btn" pButton type="button" label="Red" class="ui-button-rounded"
+              (click)="swapFrameColor('../assets/red_card_frame.png')">
+      </button>
+      <button id="yellow-btn" pButton type="button" label="Yellow" class="ui-button-rounded"
+              (click)="swapFrameColor('../assets/yellow_card_frame.png')">
+      </button>
+    </span>
+  </div>
+
+  <div>
+    <span class="ui-float-label">
+      <input
+        [(ngModel)]="cardName"
+        id="float-input"
+        type="text"
+        size="30"
+        pInputText
+      >
+      <label for="float-input">Card Name</label>
+    </span>
+  </div>
+
 </div>
 
-<div id="card-display">
-  <img src='{{frameResource}}' alt="Card Frame" height="660px">
+<div id="card-display-holder">
+  <div id="card">
+    <div id="cardName">{{this.cardName}}</div>
+    <img src='{{frameResource}}' alt="Card Frame" width="100%" height="100%">
+  </div>
 </div>
