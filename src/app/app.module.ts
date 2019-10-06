@@ -8,6 +8,7 @@ import {ButtonModule} from "primeng/button";
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
 import {FileUploadModule} from "primeng/fileupload";
+import {InputSwitchModule} from "primeng/inputswitch";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FileUploadModule} from "primeng/fileupload";
     BrowserAnimationsModule,
     InputTextModule,
     FormsModule,
-    FileUploadModule
+    FileUploadModule,
+    InputSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

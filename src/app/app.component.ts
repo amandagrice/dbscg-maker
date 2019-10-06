@@ -6,15 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  cardColor: string = 'black';
   frameResource: string = "../assets/layers/black/blacktemplate.png";
   cardName: string;
   cardArt: any;
   character: string;
   specialTrait: string;
   era: string;
+  showCardTextBox: boolean = false;
+  textboxResource: string;
 
-  swapFrameColor(colorSrc) {
-    this.frameResource = colorSrc;
+  swapFrameColor(color, frameSrc) {
+    this.cardColor = color;
+    this.frameResource = frameSrc;
   }
 
   setCardArt(event) {

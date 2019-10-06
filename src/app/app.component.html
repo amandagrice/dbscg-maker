@@ -4,19 +4,19 @@
   <div>
     <span id="color-buttons">
       <button id="black-btn" pButton type="button" label="Black" class="ui-button-rounded"
-              (click)="swapFrameColor('../assets/layers/black/blacktemplate.png')">
+              (click)="swapFrameColor('black', '../assets/layers/black/blacktemplate.png')">
       </button>
       <button id="blue-btn" pButton type="button" label="Blue" class="ui-button-rounded"
-              (click)="swapFrameColor('../assets/layers/blue/bluetemplate.png')">
+              (click)="swapFrameColor('blue', '../assets/layers/blue/bluetemplate.png')">
       </button>
       <button id="green-btn" pButton type="button" label="Green" class="ui-button-rounded"
-              (click)="swapFrameColor('../assets/layers/green/greentemplate.png')">
+              (click)="swapFrameColor('green', '../assets/layers/green/greentemplate.png')">
       </button>
       <button id="red-btn" pButton type="button" label="Red" class="ui-button-rounded"
-              (click)="swapFrameColor('../assets/layers/red/redtemplate.png')">
+              (click)="swapFrameColor('red', '../assets/layers/red/redtemplate.png')">
       </button>
       <button id="yellow-btn" pButton type="button" label="Yellow" class="ui-button-rounded"
-              (click)="swapFrameColor('../assets/layers/yellow/yellowtemplate.png')">
+              (click)="swapFrameColor('yellow', '../assets/layers/yellow/yellowtemplate.png')">
       </button>
     </span>
   </div>
@@ -31,6 +31,13 @@
         pInputText
       >
       <label for="name-input">Card Name</label>
+    </span>
+  </div>
+
+  <div>
+    <span>
+      Show Card Text Box:
+      <p-inputSwitch id="show-card-box-switch" [(ngModel)]="showCardTextBox"></p-inputSwitch>
     </span>
   </div>
 
@@ -89,5 +96,10 @@
       <img id="card-art" [src]="cardArt" height="200" alt="User Entered Art">
     </div>
     <img src='{{frameResource}}' alt="Card Frame" width="100%" height="100%">
+    <img *ngIf="showCardTextBox && cardColor === 'black'" class="card-textbox" src='../assets/layers/black/box.png' alt="Card Textbox">
+    <img *ngIf="showCardTextBox && cardColor === 'blue'"    class="card-textbox" src='../assets/layers/blue/box.png' alt="Card Textbox">
+    <img *ngIf="showCardTextBox && cardColor === 'green'"   class="card-textbox" src='../assets/layers/green/box.png' alt="Card Textbox">
+    <img *ngIf="showCardTextBox && cardColor === 'red'"     class="card-textbox" src='../assets/layers/red/box.png' alt="Card Textbox">
+    <img *ngIf="showCardTextBox && cardColor === 'yellow'"  class="card-textbox" src='../assets/layers/yellow/box.png' alt="Card Textbox">
   </div>
 </div>
