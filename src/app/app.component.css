@@ -61,6 +61,30 @@
   font-family: Verdana, serif;
   font-size: 35px;
   font-style: italic;
-  font-style: italic;
+  font-weight: bold;
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+#character, #special-trait, #era {
+  position: absolute;
+  z-index: 1000;
+  color: white;
+  font-family: Verdana, serif;
+  font-size: 10px;
+  font-style: italic;
+}
+
+#character {
+  right: 40px;
+  top: 577px;
+}
+
+#special-trait {
+  right: 40px;
+  top: 592px;
+}
+
+#era {
+  right: 48px;
+  top: 607px;
 }

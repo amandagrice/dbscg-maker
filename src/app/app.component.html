@@ -25,12 +25,51 @@
     <span class="ui-float-label">
       <input
         [(ngModel)]="cardName"
-        id="float-input"
+        id="name-input"
         type="text"
         size="30"
         pInputText
       >
-      <label for="float-input">Card Name</label>
+      <label for="name-input">Card Name</label>
+    </span>
+  </div>
+
+  <div>
+    <span class="ui-float-label">
+      <input
+        [(ngModel)]="character"
+        id="character-input"
+        type="text"
+        size="30"
+        pInputText
+      >
+      <label for="character-input">Character</label>
+    </span>
+  </div>
+
+  <div>
+    <span class="ui-float-label">
+      <input
+        [(ngModel)]="specialTrait"
+        id="trait-input"
+        type="text"
+        size="30"
+        pInputText
+      >
+      <label for="trait-input">Special Trait</label>
+    </span>
+  </div>
+
+  <div>
+    <span class="ui-float-label">
+      <input
+        [(ngModel)]="era"
+        id="era-input"
+        type="text"
+        size="30"
+        pInputText
+      >
+      <label for="era-input">Era</label>
     </span>
   </div>
 
@@ -39,6 +78,9 @@
 <div id="card-display-holder">
   <div id="card">
     <div id="cardName">{{this.cardName}}</div>
+    <div id="character">{{this.character}}</div>
+    <div id="special-trait">{{this.specialTrait}}</div>
+    <div id="era">{{this.era}}</div>
     <img src='{{frameResource}}' alt="Card Frame" width="100%" height="100%">
   </div>
 </div>

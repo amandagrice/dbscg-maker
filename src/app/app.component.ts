@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   frameResource: string = "../assets/black_card_frame.png";
-  cardName: string;
+  cardName: string = 'Name';
+  character: string = 'Character';
+  specialTrait: string = 'Trait';
+  era: string = 'Era';
 
   swapFrameColor(colorSrc) {
     this.frameResource = colorSrc;
   }
 
-  nameCard(event) {
-    console.log(event);
-  }
 }
