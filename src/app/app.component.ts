@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  frameResource: string = "../assets/black_card_frame.png";
+  frameResource: string = "../assets/layers/black/blacktemplate.png";
   cardName: string;
   cardArt: any;
   character: string;
