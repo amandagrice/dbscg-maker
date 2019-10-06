@@ -35,10 +35,8 @@
   </div>
 
   <div>
-    <span>
-      Show Card Text Box:
-      <p-inputSwitch id="show-card-box-switch" [(ngModel)]="showCardTextBox"></p-inputSwitch>
-    </span>
+    <h4>Show Card Text Box:</h4>
+    <p-inputSwitch id="show-card-box-switch" [(ngModel)]="showCardTextBox"></p-inputSwitch>
   </div>
 
   <div>
@@ -84,6 +82,11 @@
     </span>
   </div>
 
+  <div>
+    <h4>Select Combo Power:</h4>
+    <p-dropdown [options]="comboOptions" [(ngModel)]="comboPower" optionLabel="name"></p-dropdown>
+  </div>
+
 </div>
 
 <div id="card-display-holder">
@@ -96,10 +99,16 @@
       <img id="card-art" [src]="cardArt" height="200" alt="User Entered Art">
     </div>
     <img src='{{frameResource}}' alt="Card Frame" width="100%" height="100%">
-    <img *ngIf="showCardTextBox && cardColor === 'black'" class="card-textbox" src='../assets/layers/black/box.png' alt="Card Textbox">
+    <img *ngIf="showCardTextBox && cardColor === 'black'"   class="card-textbox" src='../assets/layers/black/box.png' alt="Card Textbox">
     <img *ngIf="showCardTextBox && cardColor === 'blue'"    class="card-textbox" src='../assets/layers/blue/box.png' alt="Card Textbox">
     <img *ngIf="showCardTextBox && cardColor === 'green'"   class="card-textbox" src='../assets/layers/green/box.png' alt="Card Textbox">
     <img *ngIf="showCardTextBox && cardColor === 'red'"     class="card-textbox" src='../assets/layers/red/box.png' alt="Card Textbox">
     <img *ngIf="showCardTextBox && cardColor === 'yellow'"  class="card-textbox" src='../assets/layers/yellow/box.png' alt="Card Textbox">
+
+    <img *ngIf="comboPower.cost === 0" class="combo-power"  src='../assets/layers/combos/combocost0.png' alt="0 Combo Cost">
+    <img *ngIf="comboPower.cost === 1" class="combo-power"  src='../assets/layers/combos/combocost1.png' alt="1 Combo Cost">
+    <img *ngIf="comboPower.power === 0" class="combo-power"  src='../assets/layers/combos/supercombo.png' alt="0 Combo Power">
+    <img *ngIf="comboPower.power === 5000" class="combo-power"  src='../assets/layers/combos/combo5k.png' alt="5k Combo Power">
+    <img *ngIf="comboPower.power === 10000" class="combo-power" src='../assets/layers/combos/combo10k.png' alt="10k Combo Power">
   </div>
 </div>

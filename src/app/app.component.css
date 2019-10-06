@@ -105,3 +105,12 @@
   width: 472.5px;
   height: 660px;
 }
+
+.combo-power {
+  position: absolute;
+  z-index: 1000;
+  top: 0px;
+  right: 0px;
+  width: 472.5px;
+  height: 660px;
+}

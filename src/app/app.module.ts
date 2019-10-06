@@ -9,6 +9,7 @@ import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
 import {FileUploadModule} from "primeng/fileupload";
 import {InputSwitchModule} from "primeng/inputswitch";
+import {DropdownModule} from "primeng/dropdown";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {InputSwitchModule} from "primeng/inputswitch";
     InputTextModule,
     FormsModule,
     FileUploadModule,
-    InputSwitchModule
+    InputSwitchModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
