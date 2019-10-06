@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dbscg-maker';
+  frameResource: string = "../assets/black_card_frame.png";
+
+  swapFrameColor(colorSrc) {
+    this.frameResource = colorSrc;
+  }
 }

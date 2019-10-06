@@ -1,0 +1,44 @@
+* {
+  font-family: Verdana, sans-serif;
+}
+
+#form-content {
+  float: left;
+  width: 50%;
+  display: inline-block;
+  min-width: 500px;
+}
+
+#card-display {
+  float: left;
+  width: 50%;
+  display: inline-block;
+}
+
+.ui-button-rounded {
+  margin-right: 10px;
+}
+
+#black-btn {
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
+#green-btn {
+  background-color: green;
+  border-color: green;
+  color: white;
+}
+
+#yellow-btn {
+  background-color: yellow;
+  border-color: yellow;
+  color: black;
+}
+
+#red-btn {
+  background-color: #a4090c;
+  border-color: #a4090c;
+}
+
