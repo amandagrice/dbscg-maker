@@ -27,6 +27,7 @@ export class AppComponent {
     power: 5000
   };
   skill: string;
+  skillHighlighted: string;
 
   comboOptions = [
     {name:'0 cost + 5,000',  cost: 0, power: 5000},
@@ -34,6 +35,18 @@ export class AppComponent {
     {name:'1 cost + 5,000',  cost: 1, power: 5000},
     {name:'1 cost + 10,000', cost: 1, power: 10000},
     {name:'0 cost + 0',      cost: 0, power: 0}
+  ];
+
+  redKeywordSkills: string[] = [
+    "Barrier",
+    "Blocker",
+    "Critical",
+    "Double Strike",
+    "Dual Attack",
+    "Once per turn",
+    "Super Combo",
+    "Triple Attack",
+    "Triple Strike"
   ];
 
   swapFrameColor(color, frameSrc) {
@@ -51,12 +64,31 @@ export class AppComponent {
     }
   }
 
+  unhighlight() {
+    document.getElementById("skill").innerHTML = this.skill;
+  }
+
   parseForKeywords() {
-    if (this.skill.indexOf("Auto") > -1) {
-      document.getElementById("skill").innerHTML =
-        this.skill.replace(/Auto/g,
+    this.skillHighlighted = this.skill;
+
+    if (this.skillHighlighted.indexOf("Auto") > -1) {
+      this.skillHighlighted = this.skillHighlighted.replace(/Auto/g,
           '<span class="blue-skill">Auto</span>');
     }
+
+    if (this.skillHighlighted.indexOf("Permanent") > -1) {
+      this.skillHighlighted = this.skillHighlighted.replace(/Permanent/g,
+          '<span class="pink-skill">Permanent</span>');
+    }
+
+    for (let i = 0; i < this.redKeywordSkills.length; i++) {
+      if (this.skillHighlighted.indexOf(this.redKeywordSkills[i]) > -1) {
+        const re = new RegExp(this.redKeywordSkills[i],"g");
+        this.skillHighlighted = this.skillHighlighted.replace(re,
+            '<span class="red-skill">'+this.redKeywordSkills[i]+'</span>');
+      }
+    }
+    document.getElementById("skill").innerHTML = this.skillHighlighted;
   }
 
 }
