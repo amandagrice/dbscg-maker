@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## TO DO LIST:
+- Add ability to change the card's power
+- Add ability to add cost
+- Add ability to add specified cost
+- Make textfields condense to fit on card if they get too long
+- Add a cropping and adjustment option to card art
+- Fix card text font
+- Add ability to create leaders
+- Add ability to create extra cards
