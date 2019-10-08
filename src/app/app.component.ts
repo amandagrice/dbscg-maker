@@ -39,6 +39,7 @@ export class AppComponent {
     }
   };
   cardName: string;
+  power: number;
   showCardTextBox: boolean = true;
   cardArt: any;
   character: string;

@@ -26,6 +26,10 @@
   margin-left: 10px;
 }
 
+h4 {
+  margin-left: 10px;
+}
+
 #card-display-holder {
   float: left;
   display: inline-block;
@@ -60,17 +64,26 @@
   position: relative;
 }
 
-#cardName {
+#cardName, #power {
   position: absolute;
-  left: 90px;
-  top: 4px;
   z-index: 1000;
   color: white;
   font-family: Verdana, serif;
-  font-size: 35px;
   font-style: italic;
   font-weight: bold;
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+#cardName {
+  left: 90px;
+  top: 4px;
+  font-size: 35px;
+}
+
+#power {
+  right: 278px;
+  top: 575px;
+  font-size: 30px;
 }
 
 #character, #special-trait, #era {

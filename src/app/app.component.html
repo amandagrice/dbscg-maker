@@ -35,9 +35,20 @@
   </div>
 
   <div>
-    <h4>Show Card Text Box:</h4>
-    <p-inputSwitch id="show-card-box-switch" [(ngModel)]="showCardTextBox"></p-inputSwitch>
+    <span class="ui-float-label">
+      <input
+        [(ngModel)]="power"
+        id="power-input"
+        type="number"
+        size="30"
+        pInputText
+      >
+      <label for="power-input">Power</label>
+    </span>
   </div>
+
+  <h4>Show Card Text Box:</h4>
+  <p-inputSwitch id="show-card-box-switch" [(ngModel)]="showCardTextBox"></p-inputSwitch>
 
   <div>
     <input id="art-input" type="file" name="myFile" (change)="setCardArt($event)">
@@ -82,10 +93,8 @@
     </span>
   </div>
 
-  <div>
-    <h4>Select Combo Power:</h4>
-    <p-dropdown [options]="combos" [(ngModel)]="selectedCombo" optionLabel="name"></p-dropdown>
-  </div>
+  <h4>Select Combo Power:</h4>
+  <p-dropdown [options]="combos" [(ngModel)]="selectedCombo" optionLabel="name"></p-dropdown>
 
   <div>
     <span class="ui-float-label">
@@ -101,15 +110,14 @@
     </span>
   </div>
 
-  <div>
-    <button pButton type="button" label="Highlight Keywords" class="ui-button-rounded" (click)="parseForKeywords()"></button>
-  </div>
+  <button pButton type="button" label="Highlight Keywords" class="ui-button-rounded" (click)="parseForKeywords()"></button>
 
 </div>
 
 <div id="card-display-holder">
   <div id="card" class="card-size">
     <div id="cardName">{{this.cardName}}</div>
+    <div id="power">{{this.power}}</div>
     <div id="character">{{this.character}}</div>
     <div id="special-trait">{{this.specialTrait}}</div>
     <div id="era">{{this.era}}</div>
