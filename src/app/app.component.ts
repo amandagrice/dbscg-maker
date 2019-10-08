@@ -45,6 +45,7 @@ export class AppComponent {
   character: string;
   specialTrait: string;
   era: string;
+  totalCost: number;
   combos: Combo[] = [
     {name:'0 cost + 5,000',  cost: '/combos/combocost0.png', power: '/combos/combo5k.png'},
     {name:'0 cost + 10,000', cost: '/combos/combocost0.png', power: '/combos/combo10k.png'},

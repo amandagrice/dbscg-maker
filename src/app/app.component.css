@@ -37,6 +37,7 @@ h4 {
 
 .ui-button-rounded {
   margin-left: 10px !important;
+  margin-bottom: 30px !important;
 }
 
 #black-btn {
@@ -86,6 +87,16 @@ h4 {
   font-size: 30px;
 }
 
+#total-cost {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  color: white;
+  font-weight: bold;
+  font-size: 43px;
+}
+
 #character, #special-trait, #era {
   position: absolute;
   z-index: 1000;
@@ -118,10 +129,10 @@ h4 {
 
 #skill {
   font-family: Avenir, sans-serif;
-  -webkit-text-stroke: 1px black;
+  /*-webkit-text-stroke: 1px black;*/
   font-size: 14px;
-  font-weight: bolder;
-  color: white;
+  /*font-weight: bolder;*/
+  /*color: white;*/
   position: absolute;
   z-index: 9001;
   top: 460px;

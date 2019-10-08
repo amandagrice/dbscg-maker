@@ -1,25 +1,14 @@
 <h1>Dragon Ball Super Card Game Maker</h1>
 
 <div id="form-content">
-  <div>
-    <span id="color-buttons">
-      <button id="black-btn" pButton type="button" label="Black" class="ui-button-rounded"
-              (click)="setFrameColor('black')">
-      </button>
-      <button id="blue-btn" pButton type="button" label="Blue" class="ui-button-rounded"
-              (click)="setFrameColor('blue')">
-      </button>
-      <button id="green-btn" pButton type="button" label="Green" class="ui-button-rounded"
-              (click)="setFrameColor('green')">
-      </button>
-      <button id="red-btn" pButton type="button" label="Red" class="ui-button-rounded"
-              (click)="setFrameColor('red')">
-      </button>
-      <button id="yellow-btn" pButton type="button" label="Yellow" class="ui-button-rounded"
-              (click)="setFrameColor('yellow')">
-      </button>
-    </span>
-  </div>
+  <span id="color-buttons">
+    <button id="black-btn" pButton type="button" label="Black" class="ui-button-rounded" (click)="setFrameColor('black')"></button>
+    <button id="blue-btn" pButton type="button" label="Blue" class="ui-button-rounded" (click)="setFrameColor('blue')"></button>
+    <button id="green-btn" pButton type="button" label="Green" class="ui-button-rounded" (click)="setFrameColor('green')"></button>
+    <button id="red-btn" pButton type="button" label="Red" class="ui-button-rounded" (click)="setFrameColor('red')"></button>
+    <button id="yellow-btn" pButton type="button" label="Yellow" class="ui-button-rounded" (click)="setFrameColor('yellow')"></button>
+  </span>
+  <br />
 
   <div>
     <span class="ui-float-label">
@@ -32,6 +21,10 @@
       >
       <label for="name-input">Card Name</label>
     </span>
+  </div>
+
+  <div>
+    <input id="art-input" type="file" name="myFile" (change)="setCardArt($event)">
   </div>
 
   <div>
@@ -51,7 +44,35 @@
   <p-inputSwitch id="show-card-box-switch" [(ngModel)]="showCardTextBox"></p-inputSwitch>
 
   <div>
-    <input id="art-input" type="file" name="myFile" (change)="setCardArt($event)">
+    <span class="ui-float-label">
+      <textarea
+        id="card-text-input"
+        [(ngModel)]="skill"
+        rows="5" cols="30"
+        pInputTextarea
+        autoResize="autoResize"
+        (ngModelChange)="removeHighlight()">
+      </textarea>
+      <label for="card-text-input">Skills</label>
+    </span>
+  </div>
+
+  <button pButton type="button" label="Highlight Keywords" class="ui-button-rounded" (click)="parseForKeywords()"></button>
+
+  <h4>Select Combo Power:</h4>
+  <p-dropdown [options]="combos" [(ngModel)]="selectedCombo" optionLabel="name"></p-dropdown>
+
+  <div>
+    <span class="ui-float-label">
+      <input
+        [(ngModel)]="totalCost"
+        id="total-cost-input"
+        type="number"
+        size="30"
+        pInputText
+      >
+      <label for="total-cost-input">Total Cost</label>
+    </span>
   </div>
 
   <div>
@@ -93,31 +114,13 @@
     </span>
   </div>
 
-  <h4>Select Combo Power:</h4>
-  <p-dropdown [options]="combos" [(ngModel)]="selectedCombo" optionLabel="name"></p-dropdown>
-
-  <div>
-    <span class="ui-float-label">
-      <textarea
-        id="card-text-input"
-        [(ngModel)]="skill"
-        rows="5" cols="30"
-        pInputTextarea
-        autoResize="autoResize"
-        (ngModelChange)="removeHighlight()">
-      </textarea>
-      <label for="card-text-input">Skills</label>
-    </span>
-  </div>
-
-  <button pButton type="button" label="Highlight Keywords" class="ui-button-rounded" (click)="parseForKeywords()"></button>
-
 </div>
 
 <div id="card-display-holder">
   <div id="card" class="card-size">
     <div id="cardName">{{this.cardName}}</div>
     <div id="power">{{this.power}}</div>
+    <div id="total-cost">{{this.totalCost}}</div>
     <div id="character">{{this.character}}</div>
     <div id="special-trait">{{this.specialTrait}}</div>
     <div id="era">{{this.era}}</div>
