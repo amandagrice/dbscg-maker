@@ -1,5 +1,17 @@
 * {
-  font-family: Verdana, sans-serif;
+  font-family: Avenir, sans-serif;
+}
+
+.card-size, .layer-asset {
+  width: 472.5px;
+  height: 660px;
+}
+
+.layer-asset {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: 0;
 }
 
 #form-content {
@@ -20,19 +32,17 @@
 }
 
 .ui-button-rounded {
-  margin-right: 10px;
+  margin-left: 10px !important;
 }
 
 #black-btn {
   background-color: black;
   border-color: black;
-  color: white;
 }
 
 #green-btn {
   background-color: green;
   border-color: green;
-  color: white;
 }
 
 #yellow-btn {
@@ -47,8 +57,6 @@
 }
 
 #card {
-  width: 472.5px;
-  height: 660px;
   position: relative;
 }
 
@@ -92,27 +100,7 @@
 #card-art {
   position: absolute;
   z-index: -9000;
-  width: 472.5px;
-  height: 660px;
   border-radius: 25px;
-}
-
-.card-textbox {
-  position: absolute;
-  z-index: 1000;
-  top: 0px;
-  right: 0px;
-  width: 472.5px;
-  height: 660px;
-}
-
-.combo-power {
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  right: 0;
-  width: 472.5px;
-  height: 660px;
 }
 
 #skill {
@@ -130,42 +118,27 @@
   white-space: pre-wrap;
 }
 
-.blue-skill {
-  background-color: deepskyblue !important;
+.skill-highlight {
   font-family: Georgia, sans-serif !important;
   color: white !important;
   font-weight: normal !important;
   -webkit-text-stroke: 0 black !important;
   padding-left: 4px;
   padding-right: 4px;
+}
+
+.blue-skill {
+  background-color: deepskyblue !important;
 }
 
 .red-skill {
   background-color: #ff0a16 !important;
-  font-family: Georgia, sans-serif !important;
-  color: white !important;
-  font-weight: normal !important;
-  -webkit-text-stroke: 0 black !important;
-  padding-left: 4px;
-  padding-right: 4px;
 }
 
 .yellow-skill {
   background-color: #d59e2c !important;
-  font-family: Georgia, sans-serif !important;
-  color: white !important;
-  font-weight: normal !important;
-  -webkit-text-stroke: 0 black !important;
-  padding-left: 4px;
-  padding-right: 4px;
 }
 
 .pink-skill {
   background-color: #d52298 !important;
-  font-family: Georgia, sans-serif !important;
-  color: white !important;
-  font-weight: normal !important;
-  -webkit-text-stroke: 0 black !important;
-  padding-left: 4px;
-  padding-right: 4px;
 }

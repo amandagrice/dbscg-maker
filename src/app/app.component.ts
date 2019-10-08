@@ -2,8 +2,8 @@ import {Component, ViewEncapsulation} from '@angular/core';
 
 interface Combo {
   name: string;
-  cost: number;
-  power: number;
+  cost: string;
+  power: string;
 }
 
 @Component({
@@ -13,30 +13,47 @@ interface Combo {
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
+  assets: string = '../assets/layers';
   cardColor: string = 'black';
-  frameResource: string = "../assets/layers/black/blacktemplate.png";
+  selectedFrameResource: string = "../assets/layers/black/blacktemplate.png";
+  colorResources: any = {
+    'black': {
+      'template': '/black/blacktemplate.png',
+      'box': '/black/box.png'
+    },
+    'blue': {
+      'template': '/blue/bluetemplate.png',
+      'box': '/blue/box.png'
+    },
+    'green': {
+      'template': '/green/greentemplate.png',
+      'box': '/green/box.png'
+    },
+    'red': {
+      'template': '/red/redtemplate.png',
+      'box': '/red/box.png'
+    },
+    'yellow': {
+      'template': '/yellow/yellowtemplate.png',
+      'box': '/yellow/box.png'
+    }
+  };
   cardName: string;
+  showCardTextBox: boolean = true;
   cardArt: any;
   character: string;
   specialTrait: string;
   era: string;
-  showCardTextBox: boolean = true;
-  comboPower: Combo = {
-    name:'0 cost + 5,000',
-    cost: 0,
-    power: 5000
-  };
+  combos: Combo[] = [
+    {name:'0 cost + 5,000',  cost: '/combos/combocost0.png', power: '/combos/combo5k.png'},
+    {name:'0 cost + 10,000', cost: '/combos/combocost0.png', power: '/combos/combo10k.png'},
+    {name:'1 cost + 5,000',  cost: '/combos/combocost1.png', power: '/combos/combo5k.png'},
+    {name:'1 cost + 10,000', cost: '/combos/combocost1.png', power: '/combos/combo10k.png'},
+    {name:'0 cost + 0',      cost: '/combos/combocost0.png', power: '/combos/supercombo.png'}
+  ];
+  selectedCombo: Combo = this.combos[0];
   skill: string;
   skillHighlighted: string;
-
-  comboOptions = [
-    {name:'0 cost + 5,000',  cost: 0, power: 5000},
-    {name:'0 cost + 10,000', cost: 0, power: 10000},
-    {name:'1 cost + 5,000',  cost: 1, power: 5000},
-    {name:'1 cost + 10,000', cost: 1, power: 10000},
-    {name:'0 cost + 0',      cost: 0, power: 0}
-  ];
-
   redKeywordSkills: string[] = [
     "Barrier",
     "Blocker",
@@ -49,9 +66,9 @@ export class AppComponent {
     "Triple Strike"
   ];
 
-  swapFrameColor(color, frameSrc) {
+  setFrameColor(color) {
     this.cardColor = color;
-    this.frameResource = frameSrc;
+    this.selectedFrameResource = this.assets + this.colorResources[color]['template'];
   }
 
   setCardArt(event) {
@@ -64,31 +81,31 @@ export class AppComponent {
     }
   }
 
-  unhighlight() {
-    document.getElementById("skill").innerHTML = this.skill;
-  }
-
   parseForKeywords() {
     this.skillHighlighted = this.skill;
 
     if (this.skillHighlighted.indexOf("Auto") > -1) {
       this.skillHighlighted = this.skillHighlighted.replace(/Auto/g,
-          '<span class="blue-skill">Auto</span>');
+          '<span class="skill-highlight blue-skill">Auto</span>');
     }
 
     if (this.skillHighlighted.indexOf("Permanent") > -1) {
       this.skillHighlighted = this.skillHighlighted.replace(/Permanent/g,
-          '<span class="pink-skill">Permanent</span>');
+          '<span class="skill-highlight pink-skill">Permanent</span>');
     }
 
     for (let i = 0; i < this.redKeywordSkills.length; i++) {
       if (this.skillHighlighted.indexOf(this.redKeywordSkills[i]) > -1) {
         const re = new RegExp(this.redKeywordSkills[i],"g");
         this.skillHighlighted = this.skillHighlighted.replace(re,
-            '<span class="red-skill">'+this.redKeywordSkills[i]+'</span>');
+            '<span class="skill-highlight red-skill">'+this.redKeywordSkills[i]+'</span>');
       }
     }
     document.getElementById("skill").innerHTML = this.skillHighlighted;
+  }
+
+  removeHighlight() {
+    document.getElementById("skill").innerHTML = this.skill;
   }
 
 }
