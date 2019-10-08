@@ -28,7 +28,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## TO DO LIST:
-- Add ability to add cost
 - Add ability to add specified cost
 - Make textfields condense to fit on card if they get too long
 - Add a cropping and adjustment option to card art
