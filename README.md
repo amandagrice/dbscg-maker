@@ -33,3 +33,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Fix card text font
 - Add ability to create leaders
 - Add ability to create extra cards
+- Add set value in corner
