@@ -15,27 +15,32 @@ interface Combo {
 export class AppComponent {
   assets: string = '../assets/layers';
   cardColor: string = 'black';
-  selectedFrameResource: string = "../assets/layers/black/blacktemplate.png";
+  selectedFrameResource: string = "../assets/layers/black/template.png";
   colorResources: any = {
     'black': {
-      'template': '/black/blacktemplate.png',
-      'box': '/black/box.png'
+      'template': '/black/template.png',
+      'box': '/black/box.png',
+      'drop': ''
     },
     'blue': {
-      'template': '/blue/bluetemplate.png',
-      'box': '/blue/box.png'
+      'template': '/blue/template.png',
+      'box': '/blue/box.png',
+      'drop': ''
     },
     'green': {
-      'template': '/green/greentemplate.png',
-      'box': '/green/box.png'
+      'template': '/green/template.png',
+      'box': '/green/box.png',
+      'drop': ''
     },
     'red': {
-      'template': '/red/redtemplate.png',
-      'box': '/red/box.png'
+      'template': '/red/template.png',
+      'box': '/red/box.png',
+      'drop': ''
     },
     'yellow': {
-      'template': '/yellow/yellowtemplate.png',
-      'box': '/yellow/box.png'
+      'template': '/yellow/template.png',
+      'box': '/yellow/box.png',
+      'drop': ''
     }
   };
   cardName: string;
@@ -46,6 +51,7 @@ export class AppComponent {
   specialTrait: string;
   era: string;
   totalCost: number;
+  specifiedCost: number;
   combos: Combo[] = [
     {name:'0 cost + 5,000',  cost: '/combos/combocost0.png', power: '/combos/combo5k.png'},
     {name:'0 cost + 10,000', cost: '/combos/combocost0.png', power: '/combos/combo10k.png'},

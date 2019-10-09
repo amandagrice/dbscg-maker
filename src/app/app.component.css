@@ -125,6 +125,8 @@ h4 {
   position: absolute;
   z-index: -9000;
   border-radius: 25px;
+  top: 0;
+  left: 0;
 }
 
 #skill {
