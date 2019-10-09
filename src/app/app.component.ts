@@ -14,8 +14,8 @@ interface Combo {
 })
 export class AppComponent {
   assets: string = '../assets/layers';
-  cardColor: string = 'black';
-  selectedFrameResource: string = "../assets/layers/black/template.png";
+  cardColor: string = 'green';
+  selectedFrameResource: string = "../assets/layers/green/template.png";
   colorResources: any = {
     'black': {
       'template': '/black/template.png',
@@ -25,22 +25,22 @@ export class AppComponent {
     'blue': {
       'template': '/blue/template.png',
       'box': '/blue/box.png',
-      'drop': ''
+      'drop': '/blue/drop.png'
     },
     'green': {
       'template': '/green/template.png',
       'box': '/green/box.png',
-      'drop': ''
+      'drop': '/green/drop.png'
     },
     'red': {
       'template': '/red/template.png',
       'box': '/red/box.png',
-      'drop': ''
+      'drop': '/red/drop.png'
     },
     'yellow': {
       'template': '/yellow/template.png',
       'box': '/yellow/box.png',
-      'drop': ''
+      'drop': '/yellow/drop.png'
     }
   };
   cardName: string;
@@ -77,6 +77,7 @@ export class AppComponent {
   setFrameColor(color) {
     this.cardColor = color;
     this.selectedFrameResource = this.assets + this.colorResources[color]['template'];
+    this.setDrops();
   }
 
   setCardArt(event) {
@@ -116,4 +117,45 @@ export class AppComponent {
     document.getElementById("skill").innerHTML = this.skill;
   }
 
+  setDrops() {
+    document.getElementById('specified-cost').innerHTML = '';
+    const dropsArray = [];
+    const radius = 40;
+    const theta = [
+      -1 * (Math.PI / 6),   // start 30 degrees
+      0,
+      Math.PI / 6,
+      Math.PI / 3,
+      Math.PI / 2,
+      2 * (Math.PI / 3),    // end 270 degrees
+
+      -1 * (Math.PI / 12),  // loop back around and squeeze in between - between 0 & 1
+      (Math.PI / 12),       // between 1 & 2, etc.
+      (Math.PI / 4),
+      -19 * (Math.PI / 12),
+    ];
+
+    if (this.cardColor !== 'black') {
+      let i = 0;
+      while (i < this.specifiedCost && i < 11) {
+        const drop = document.createElement('img');
+        drop.src = this.assets + this.colorResources[this.cardColor]['drop'];
+        drop.id = "drop" + i;
+        dropsArray.push(drop);
+        dropsArray[i].style.position = "absolute";
+        if (i < 6) {
+          dropsArray[i].style.zIndex = 10000 + i;
+        } else {
+          dropsArray[i].style.zIndex = 10000 + (i - 6);
+        }
+
+        dropsArray[i].posx = Math.round(radius * (Math.cos(theta[i]))) + 'px';
+        dropsArray[i].posy = Math.round(radius * (Math.sin(theta[i]))) + 'px';
+        dropsArray[i].style.top = parseInt(dropsArray[i].posy.slice(0, -2)) + 'px';
+        dropsArray[i].style.left = parseInt(dropsArray[i].posx.slice(0, -2)) + 'px';
+        document.getElementById('specified-cost').appendChild(dropsArray[i]);
+        i = i + 1;
+      }
+    }
+  }
 }
