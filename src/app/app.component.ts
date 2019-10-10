@@ -44,6 +44,7 @@ export class AppComponent {
     }
   };
   cardName: string;
+  cardNameFontSize: number = 35;
   power: number;
   showCardTextBox: boolean = true;
   cardArt: any;
@@ -53,11 +54,11 @@ export class AppComponent {
   totalCost: number;
   specifiedCost: number;
   combos: Combo[] = [
-    {name:'0 cost + 5,000',  cost: '/combos/combocost0.png', power: '/combos/combo5k.png'},
-    {name:'0 cost + 10,000', cost: '/combos/combocost0.png', power: '/combos/combo10k.png'},
-    {name:'1 cost + 5,000',  cost: '/combos/combocost1.png', power: '/combos/combo5k.png'},
-    {name:'1 cost + 10,000', cost: '/combos/combocost1.png', power: '/combos/combo10k.png'},
-    {name:'0 cost + 0',      cost: '/combos/combocost0.png', power: '/combos/supercombo.png'}
+    {name: '0 cost + 5,000', cost: '/combos/combocost0.png', power: '/combos/combo5k.png'},
+    {name: '0 cost + 10,000', cost: '/combos/combocost0.png', power: '/combos/combo10k.png'},
+    {name: '1 cost + 5,000', cost: '/combos/combocost1.png', power: '/combos/combo5k.png'},
+    {name: '1 cost + 10,000', cost: '/combos/combocost1.png', power: '/combos/combo10k.png'},
+    {name: '0 cost + 0', cost: '/combos/combocost0.png', power: '/combos/supercombo.png'}
   ];
   selectedCombo: Combo = this.combos[0];
   skill: string;
@@ -95,19 +96,19 @@ export class AppComponent {
 
     if (this.skillHighlighted.indexOf("Auto") > -1) {
       this.skillHighlighted = this.skillHighlighted.replace(/Auto/g,
-          '<span class="skill-highlight blue-skill">Auto</span>');
+        '<span class="skill-highlight blue-skill">Auto</span>');
     }
 
     if (this.skillHighlighted.indexOf("Permanent") > -1) {
       this.skillHighlighted = this.skillHighlighted.replace(/Permanent/g,
-          '<span class="skill-highlight pink-skill">Permanent</span>');
+        '<span class="skill-highlight pink-skill">Permanent</span>');
     }
 
     for (let i = 0; i < this.redKeywordSkills.length; i++) {
       if (this.skillHighlighted.indexOf(this.redKeywordSkills[i]) > -1) {
-        const re = new RegExp(this.redKeywordSkills[i],"g");
+        const re = new RegExp(this.redKeywordSkills[i], "g");
         this.skillHighlighted = this.skillHighlighted.replace(re,
-            '<span class="skill-highlight red-skill">'+this.redKeywordSkills[i]+'</span>');
+          '<span class="skill-highlight red-skill">' + this.redKeywordSkills[i] + '</span>');
       }
     }
     document.getElementById("skill").innerHTML = this.skillHighlighted;
@@ -128,7 +129,6 @@ export class AppComponent {
       Math.PI / 3,
       Math.PI / 2,
       2 * (Math.PI / 3),    // end 270 degrees
-
       -1 * (Math.PI / 12),  // loop back around and squeeze in between - between 0 & 1
       (Math.PI / 12),       // between 1 & 2, etc.
       (Math.PI / 4),
@@ -158,4 +158,21 @@ export class AppComponent {
       }
     }
   }
+
+  adjustCardNameSize() {
+    let nameElement = document.getElementById('card-name');
+    let nameArea = document.getElementById('card-name-area');
+    if (nameElement.clientWidth > nameArea.clientWidth) {
+      while (nameElement.clientWidth > nameArea.clientWidth) {
+        this.cardNameFontSize--;
+        nameElement.style.fontSize = this.cardNameFontSize + "px";
+      }
+    } else if (this.cardNameFontSize < 35 && nameElement.clientWidth < nameArea.clientWidth) {
+      while (this.cardNameFontSize < 35 && nameElement.clientWidth < nameArea.clientWidth) {
+        this.cardNameFontSize++;
+        nameElement.style.fontSize = this.cardNameFontSize + "px";
+      }
+    }
+  }
+
 }

@@ -65,26 +65,40 @@ h4 {
   position: relative;
 }
 
-#cardName, #power {
+#card-name, #power {
   position: absolute;
   z-index: 1000;
   color: white;
-  font-family: Verdana, serif;
   font-style: italic;
-  font-weight: bold;
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 
-#cardName {
-  left: 90px;
-  top: 4px;
+#card-name {
   font-size: 35px;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  white-space: nowrap;
+}
+
+#card-name-area {
+  display: inline-block;
+  position: absolute;
+  width: 292px;
+  height: 20px;
+  min-height: 20px;
+  left: 93px;
+  top: 27px;
+  margin: 0;
 }
 
 #power {
   right: 278px;
   top: 575px;
   font-size: 30px;
+  font-weight: bold;
+  font-family: Verdana, sans-serif;
 }
 
 #total-cost {

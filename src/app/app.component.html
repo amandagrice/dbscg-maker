@@ -18,6 +18,7 @@
         type="text"
         size="30"
         pInputText
+        (ngModelChange)="adjustCardNameSize()"
       >
       <label for="name-input">Card Name</label>
     </span>
@@ -134,7 +135,7 @@
 
 <div id="card-display-holder">
   <div id="card" class="card-size">
-    <div id="cardName">{{this.cardName}}</div>
+    <div id="card-name-area"><div id="card-name">{{this.cardName}}</div></div>
     <div id="power">{{this.power}}</div>
     <div id="total-cost">{{this.totalCost}}</div>
     <div id="character">{{this.character}}</div>
