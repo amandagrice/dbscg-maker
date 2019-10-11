@@ -2,8 +2,20 @@
   font-family: Avenir, sans-serif;
 }
 
-h1 {
+p {
   text-align: center;
+  font-family: Saiyan-Sans-Right-Oblique, serif;
+  padding-left: 150px;
+}
+
+#main-title {
+  font-size: 75px;
+  margin: 0;
+}
+#subtitle {
+  font-size: 50px;
+  margin: 0;
+  padding-bottom: 10px;
 }
 
 #page-content {
@@ -33,13 +45,24 @@ textarea {
 }
 
 @media only screen and (max-width: 1000px) {
-  #form-content {
-    position: relative;
-    display: block;
-    padding: 0;
-    margin: 0 auto;
-    float: none;
+  #form-content, #card-display-holder {
+    position: relative !important;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    float: none !important;
     width: 325px;
+  }
+
+  #card-display-holder {
+    width: 500px;
+  }
+
+  p {
+    padding: 0;
+  }
+  #main-title {
+    display: none;
   }
 }
 

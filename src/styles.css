@@ -2,3 +2,18 @@
 @import '../node_modules/primeng/resources/primeng.min.css';
 @import '../node_modules/primeng/resources/themes/nova-light/theme.css';
 @import '../node_modules/primeicons/primeicons.css';
+
+@font-face {
+  font-family: 'Saiyan-Sans';
+  src: url('/assets/fonts/Saiyan-Sans.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Saiyan-Sans-Left-Oblique';
+  src: url('/assets/fonts/Saiyan-Sans-Left-Oblique.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Saiyan-Sans-Right-Oblique';
+  src: url('/assets/fonts/Saiyan-Sans-Right-Oblique.ttf') format('truetype');
+}
