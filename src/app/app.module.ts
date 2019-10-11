@@ -11,6 +11,7 @@ import {FileUploadModule} from "primeng/fileupload";
 import {InputSwitchModule} from "primeng/inputswitch";
 import {DropdownModule} from "primeng/dropdown";
 import {InputTextareaModule} from "primeng/inputtextarea";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {InputTextareaModule} from "primeng/inputtextarea";
     FileUploadModule,
     InputSwitchModule,
     DropdownModule,
-    InputTextareaModule
+    InputTextareaModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

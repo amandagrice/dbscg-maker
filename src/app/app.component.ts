@@ -14,8 +14,8 @@ interface Combo {
 })
 export class AppComponent {
   assets: string = '../assets/layers';
-  cardColor: string = 'green';
-  selectedFrameResource: string = "../assets/layers/green/template.png";
+  cardColor: string = 'black';
+  selectedFrameResource: string = "../assets/layers/black/template.png";
   colorResources: any = {
     'black': {
       'template': '/black/template.png',
@@ -60,7 +60,7 @@ export class AppComponent {
     {name: '1 cost + 10,000', cost: '/combos/combocost1.png', power: '/combos/combo10k.png'},
     {name: '0 cost + 0', cost: '/combos/combocost0.png', power: '/combos/supercombo.png'}
   ];
-  selectedCombo: Combo = this.combos[0];
+  selectedCombo: Combo;
   skill: string;
   skillHighlighted: string;
   redKeywordSkills: string[] = [
