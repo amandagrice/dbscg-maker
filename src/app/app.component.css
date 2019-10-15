@@ -222,8 +222,11 @@ textarea {
 }
 
 #special-trait {
-  right: 42px;
-  top: 590px;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  white-space: nowrap;
 }
 
 #era {
@@ -238,6 +241,17 @@ textarea {
   height: 14px;
   min-height: 14px;
   top: 575px;
+  left: 293px;
+  margin: 0;
+}
+
+#special-trait-area {
+  display: inline-block;
+  position: absolute;
+  width: 138px;
+  height: 14px;
+  min-height: 14px;
+  top: 590px;
   left: 293px;
   margin: 0;
 }

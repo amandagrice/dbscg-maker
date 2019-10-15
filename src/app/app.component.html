@@ -128,6 +128,7 @@
         type="text"
         size="30"
         pInputText
+        (ngModelChange)="adjustSpecialTraitSize()"
       >
       <label for="trait-input">Special Trait</label>
     </span>
@@ -158,7 +159,9 @@
       <div id="character-area">
         <div id="character">{{this.character}}</div>
       </div>
-      <div id="special-trait">{{this.specialTrait}}</div>
+      <div id="special-trait-area">
+        <div id="special-trait">{{this.specialTrait}}</div>
+      </div>
       <div id="era">{{this.era}}</div>
       <div *ngIf="cardArt"><img id="card-art" class="card-size" [src]="cardArt" height="200" alt="User Art"></div>
       <div id="skill">{{this.skill}}</div>
