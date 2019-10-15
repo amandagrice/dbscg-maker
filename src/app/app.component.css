@@ -230,8 +230,11 @@ textarea {
 }
 
 #era {
-  right: 52px;
-  top: 605px;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  white-space: nowrap;
 }
 
 #character-area {
@@ -253,6 +256,17 @@ textarea {
   min-height: 14px;
   top: 590px;
   left: 293px;
+  margin: 0;
+}
+
+#era-area {
+  display: inline-block;
+  position: absolute;
+  width: 125px;
+  height: 14px;
+  min-height: 14px;
+  top: 607px;
+  left: 282px;
   margin: 0;
 }
 

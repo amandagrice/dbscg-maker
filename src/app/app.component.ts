@@ -53,6 +53,7 @@ export class AppComponent {
   specialTrait: string;
   specialTraitFontSize = 10;
   era: string;
+  eraFontSize = 10;
   totalCost: number;
   specifiedCost: number;
   combos: Combo[] = [
@@ -205,6 +206,22 @@ export class AppComponent {
       while (this.specialTraitFontSize < 10 && specialTraitElement.clientWidth < specialTraitArea.clientWidth) {
         this.specialTraitFontSize++;
         specialTraitElement.style.fontSize = this.specialTraitFontSize + "px";
+      }
+    }
+  }
+
+  adjustEraSize() {
+    let eraTraitElement = document.getElementById('era');
+    let eraArea = document.getElementById('era-area');
+    if (eraTraitElement.clientWidth > eraArea.clientWidth) {
+      while (eraTraitElement.clientWidth > eraArea.clientWidth) {
+        this.eraFontSize--;
+        eraTraitElement.style.fontSize = this.eraFontSize + "px";
+      }
+    } else if (this.eraFontSize < 10 && eraTraitElement.clientWidth < eraArea.clientWidth) {
+      while (this.eraFontSize < 10 && eraTraitElement.clientWidth < eraArea.clientWidth) {
+        this.eraFontSize++;
+        eraTraitElement.style.fontSize = this.eraFontSize + "px";
       }
     }
   }

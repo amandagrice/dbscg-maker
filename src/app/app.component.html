@@ -142,6 +142,7 @@
         type="text"
         size="30"
         pInputText
+        (ngModelChange)="adjustEraSize()"
       >
       <label for="era-input">Era</label>
     </span>
@@ -162,7 +163,9 @@
       <div id="special-trait-area">
         <div id="special-trait">{{this.specialTrait}}</div>
       </div>
-      <div id="era">{{this.era}}</div>
+      <div id="era-area">
+        <div id="era">{{this.era}}</div>
+      </div>
       <div *ngIf="cardArt"><img id="card-art" class="card-size" [src]="cardArt" height="200" alt="User Art"></div>
       <div id="skill">{{this.skill}}</div>
       <img src='{{selectedFrameResource}}' alt="Card Frame" width="100%" height="100%">
