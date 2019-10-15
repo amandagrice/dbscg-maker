@@ -28,8 +28,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## TO DO LIST:
-- Make textfields condense to fit on card if they get too long
+- make color selection glow on selected; remove the square
 - Add a cropping and adjustment option to card art
+- make power scale if it goes over
+- make first three digits of power smaller
+- add manual skill highlighting
+- make total cost scale if it goes over
+- make specified cost unlimited; calculate instead of using array
 - Fix card text font
 - Add ability to create leaders
 - Add ability to create extra cards
