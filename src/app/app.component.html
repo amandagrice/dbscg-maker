@@ -6,10 +6,10 @@
 
     <div id="color-button-holder" class="large-bottom-margin">
     <span id="color-buttons">
-      <button id="black-btn" type="button" class="color-button" (click)="setFrameColor('black')"></button>
-      <button id="blue-btn" type="button" class="color-button" (click)="setFrameColor('blue')"></button>
-      <button id="green-btn" type="button" class="color-button" (click)="setFrameColor('green')"></button>
-      <button id="red-btn" type="button" class="color-button" (click)="setFrameColor('red')"></button>
+      <button id="black-btn"  type="button" class="color-button" (click)="setFrameColor('black')"></button>
+      <button id="blue-btn"   type="button" class="color-button" (click)="setFrameColor('blue')"></button>
+      <button id="green-btn"  type="button" class="color-button" (click)="setFrameColor('green')"></button>
+      <button id="red-btn"    type="button" class="color-button" (click)="setFrameColor('red')"></button>
       <button id="yellow-btn" type="button" class="color-button" (click)="setFrameColor('yellow')"></button>
     </span>
     </div>
@@ -22,7 +22,7 @@
         type="text"
         size="30"
         pInputText
-        (ngModelChange)="adjustCardNameSize()"
+        (ngModelChange)="scaleTextField('card-name', cardNameFontSize, 35)"
       >
       <label for="name-input">Card Name</label>
     </span>
@@ -114,7 +114,7 @@
         type="text"
         size="30"
         pInputText
-        (ngModelChange)="adjustCharacterSize()"
+        (ngModelChange)="scaleTextField('character', characterFontSize, 10)"
       >
       <label for="character-input">Character</label>
     </span>
@@ -128,7 +128,7 @@
         type="text"
         size="30"
         pInputText
-        (ngModelChange)="adjustSpecialTraitSize()"
+        (ngModelChange)="scaleTextField('special-trait', specialTraitFontSize, 10)"
       >
       <label for="trait-input">Special Trait</label>
     </span>
@@ -142,7 +142,7 @@
         type="text"
         size="30"
         pInputText
-        (ngModelChange)="adjustEraSize()"
+        (ngModelChange)="scaleTextField('era', eraFontSize, 10)"
       >
       <label for="era-input">Era</label>
     </span>
@@ -152,25 +152,16 @@
 
   <div id="card-display-holder">
     <div id="card" class="card-size">
-      <div id="card-name-area">
-        <div id="card-name">{{this.cardName}}</div>
-      </div>
+      <div id="card-name-area"><div id="card-name">{{this.cardName}}</div></div>
       <div id="power">{{this.power}}</div>
       <div id="total-cost">{{this.totalCost}}</div>
-      <div id="character-area">
-        <div id="character">{{this.character}}</div>
-      </div>
-      <div id="special-trait-area">
-        <div id="special-trait">{{this.specialTrait}}</div>
-      </div>
-      <div id="era-area">
-        <div id="era">{{this.era}}</div>
-      </div>
+      <div id="character-area"><div id="character">{{this.character}}</div></div>
+      <div id="special-trait-area"><div id="special-trait">{{this.specialTrait}}</div></div>
+      <div id="era-area"><div id="era">{{this.era}}</div></div>
       <div *ngIf="cardArt"><img id="card-art" class="card-size" [src]="cardArt" height="200" alt="User Art"></div>
       <div id="skill">{{this.skill}}</div>
       <img src='{{selectedFrameResource}}' alt="Card Frame" width="100%" height="100%">
-      <img *ngIf="showCardTextBox" class="layer-asset" [src]="assets + colorResources[cardColor]['box']"
-           alt="card text">
+      <img *ngIf="showCardTextBox" class="layer-asset" [src]="assets + colorResources[cardColor]['box']" alt="card text">
       <div id="specified-cost"></div>
       <img *ngIf="selectedCombo" class="layer-asset" [src]="assets + selectedCombo['cost']" alt="combo cost">
       <img *ngIf="selectedCombo" class="layer-asset" [src]="assets + selectedCombo['power']" alt="combo power">

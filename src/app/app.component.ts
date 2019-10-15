@@ -162,66 +162,18 @@ export class AppComponent {
     }
   }
 
-  adjustCardNameSize() {
-    let nameElement = document.getElementById('card-name');
-    let nameArea = document.getElementById('card-name-area');
-    if (nameElement.clientWidth > nameArea.clientWidth) {
-      while (nameElement.clientWidth > nameArea.clientWidth) {
-        this.cardNameFontSize--;
-        nameElement.style.fontSize = this.cardNameFontSize + "px";
+  scaleTextField(field, font, maxSize) {
+    let element = document.getElementById(field);
+    let area = document.getElementById(field + '-area');
+    if (element.clientWidth > area.clientWidth) {
+      while (element.clientWidth > area.clientWidth) {
+        font--;
+        element.style.fontSize = font + "px";
       }
-    } else if (this.cardNameFontSize < 35 && nameElement.clientWidth < nameArea.clientWidth) {
-      while (this.cardNameFontSize < 35 && nameElement.clientWidth < nameArea.clientWidth) {
-        this.cardNameFontSize++;
-        nameElement.style.fontSize = this.cardNameFontSize + "px";
-      }
-    }
-  }
-
-  adjustCharacterSize() {
-    let characterElement = document.getElementById('character');
-    let characterArea = document.getElementById('character-area');
-    if (characterElement.clientWidth > characterArea.clientWidth) {
-      while (characterElement.clientWidth > characterArea.clientWidth) {
-        this.characterFontSize--;
-        characterElement.style.fontSize = this.characterFontSize + "px";
-      }
-    } else if (this.characterFontSize < 10 && characterElement.clientWidth < characterArea.clientWidth) {
-      while (this.characterFontSize < 10 && characterElement.clientWidth < characterArea.clientWidth) {
-        this.characterFontSize++;
-        characterElement.style.fontSize = this.characterFontSize + "px";
-      }
-    }
-  }
-
-  adjustSpecialTraitSize() {
-    let specialTraitElement = document.getElementById('special-trait');
-    let specialTraitArea = document.getElementById('special-trait-area');
-    if (specialTraitElement.clientWidth > specialTraitArea.clientWidth) {
-      while (specialTraitElement.clientWidth > specialTraitArea.clientWidth) {
-        this.specialTraitFontSize--;
-        specialTraitElement.style.fontSize = this.specialTraitFontSize + "px";
-      }
-    } else if (this.specialTraitFontSize < 10 && specialTraitElement.clientWidth < specialTraitArea.clientWidth) {
-      while (this.specialTraitFontSize < 10 && specialTraitElement.clientWidth < specialTraitArea.clientWidth) {
-        this.specialTraitFontSize++;
-        specialTraitElement.style.fontSize = this.specialTraitFontSize + "px";
-      }
-    }
-  }
-
-  adjustEraSize() {
-    let eraTraitElement = document.getElementById('era');
-    let eraArea = document.getElementById('era-area');
-    if (eraTraitElement.clientWidth > eraArea.clientWidth) {
-      while (eraTraitElement.clientWidth > eraArea.clientWidth) {
-        this.eraFontSize--;
-        eraTraitElement.style.fontSize = this.eraFontSize + "px";
-      }
-    } else if (this.eraFontSize < 10 && eraTraitElement.clientWidth < eraArea.clientWidth) {
-      while (this.eraFontSize < 10 && eraTraitElement.clientWidth < eraArea.clientWidth) {
-        this.eraFontSize++;
-        eraTraitElement.style.fontSize = this.eraFontSize + "px";
+    } else if (font < maxSize && element.clientWidth < area.clientWidth) {
+      while (font < maxSize && element.clientWidth < area.clientWidth) {
+        font++;
+        element.style.fontSize = font + "px";
       }
     }
   }

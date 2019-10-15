@@ -208,66 +208,37 @@ textarea {
   position: absolute;
   z-index: 10000;
   color: white;
-  font-family: Verdana, serif;
   font-size: 10px;
   font-style: italic;
-}
-
-#character {
   margin: 0;
-  position: absolute;
   bottom: 0;
   right: 0;
   white-space: nowrap;
 }
 
-#special-trait {
-  margin: 0;
+#character-area, #special-trait-area, #era-area {
+  display: inline-block;
   position: absolute;
-  bottom: 0;
-  right: 0;
-  white-space: nowrap;
-}
-
-#era {
+  width: 138px;
+  height: 14px;
+  min-height: 14px;
   margin: 0;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  white-space: nowrap;
+  left: 293px;
 }
 
 #character-area {
-  display: inline-block;
-  position: absolute;
-  width: 138px;
-  height: 14px;
-  min-height: 14px;
   top: 575px;
-  left: 293px;
-  margin: 0;
 }
 
 #special-trait-area {
-  display: inline-block;
-  position: absolute;
-  width: 138px;
-  height: 14px;
-  min-height: 14px;
   top: 590px;
-  left: 293px;
-  margin: 0;
 }
 
 #era-area {
-  display: inline-block;
-  position: absolute;
   width: 125px;
   height: 14px;
-  min-height: 14px;
   top: 607px;
   left: 282px;
-  margin: 0;
 }
 
 #card-art {
@@ -279,9 +250,6 @@ textarea {
 }
 
 #skill {
-  /*-webkit-text-stroke: 1px black;*/
-  /*font-weight: bolder;*/
-  /*color: white;*/
   font-size: 14px;
   position: absolute;
   z-index: 9001;
