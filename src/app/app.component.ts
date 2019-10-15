@@ -48,7 +48,8 @@ export class AppComponent {
   power: number;
   showCardTextBox: boolean = true;
   cardArt: any;
-  character: string;
+  character: string = 'amandagrice';
+  characterFontSize = 10;
   specialTrait: string;
   era: string;
   totalCost: number;
@@ -171,6 +172,22 @@ export class AppComponent {
       while (this.cardNameFontSize < 35 && nameElement.clientWidth < nameArea.clientWidth) {
         this.cardNameFontSize++;
         nameElement.style.fontSize = this.cardNameFontSize + "px";
+      }
+    }
+  }
+
+  adjustCharacterSize() {
+    let characterElement = document.getElementById('character');
+    let characterArea = document.getElementById('character-area');
+    if (characterElement.clientWidth > characterArea.clientWidth) {
+      while (characterElement.clientWidth > characterArea.clientWidth) {
+        this.characterFontSize--;
+        characterElement.style.fontSize = this.characterFontSize + "px";
+      }
+    } else if (this.characterFontSize < 10 && characterElement.clientWidth < characterArea.clientWidth) {
+      while (this.characterFontSize < 10 && characterElement.clientWidth < characterArea.clientWidth) {
+        this.characterFontSize++;
+        characterElement.style.fontSize = this.characterFontSize + "px";
       }
     }
   }
