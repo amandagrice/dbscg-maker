@@ -44,18 +44,13 @@ export class AppComponent {
     }
   };
   cardName: string;
-  cardNameFontSize: number = 35;
   power: number;
   showCardTextBox: boolean = true;
   cardArt: any;
   character: string;
-  characterFontSize: number = 10;
   specialTrait: string;
-  specialTraitFontSize = 10;
   era: string;
-  eraFontSize: number = 10;
   totalCost: number;
-  totalCostFontSize: number = 43;
   specifiedCost: number;
   combos: Combo[] = [
     {name: '0 cost + 5,000', cost: '/combos/combocost0.png', power: '/combos/combo5k.png'},
