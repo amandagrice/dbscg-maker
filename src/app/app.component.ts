@@ -49,12 +49,13 @@ export class AppComponent {
   showCardTextBox: boolean = true;
   cardArt: any;
   character: string;
-  characterFontSize = 10;
+  characterFontSize: number = 10;
   specialTrait: string;
   specialTraitFontSize = 10;
   era: string;
-  eraFontSize = 10;
+  eraFontSize: number = 10;
   totalCost: number;
+  totalCostFontSize: number = 43;
   specifiedCost: number;
   combos: Combo[] = [
     {name: '0 cost + 5,000', cost: '/combos/combocost0.png', power: '/combos/combo5k.png'},
@@ -77,6 +78,13 @@ export class AppComponent {
     "Triple Attack",
     "Triple Strike"
   ];
+  fontsize: any = {
+    'total-cost': 43,
+    'card-name': 35,
+    'character': 10,
+    'special-trait': 10,
+    'era': 10
+  };
 
   setFrameColor(color) {
     this.cardColor = color;
@@ -162,9 +170,10 @@ export class AppComponent {
     }
   }
 
-  scaleTextField(field, font, maxSize) {
+  scaleTextField(field, maxSize) {
     let element = document.getElementById(field);
     let area = document.getElementById(field + '-area');
+    let font = this.fontsize[field];
     if (element.clientWidth > area.clientWidth) {
       while (element.clientWidth > area.clientWidth) {
         font--;
@@ -176,6 +185,7 @@ export class AppComponent {
         element.style.fontSize = font + "px";
       }
     }
+    this.fontsize[field] = font;
   }
 
 }
