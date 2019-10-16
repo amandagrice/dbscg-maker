@@ -81,6 +81,7 @@ export class AppComponent {
   fontsize: any = {
     'total-cost': 43,
     'card-name': 35,
+    'power': 30,
     'character': 10,
     'special-trait': 10,
     'era': 10

@@ -176,11 +176,21 @@ textarea {
 }
 
 #power {
-  right: 278px;
-  top: 575px;
   font-size: 30px;
   font-weight: bold;
   font-family: Verdana, sans-serif;
+  position: absolute;
+  bottom: 0;
+  white-space: nowrap;
+}
+
+#power-area {
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  min-height: 40px;
+  left: 80px;
+  bottom: 50px;
 }
 
 #total-cost-area {

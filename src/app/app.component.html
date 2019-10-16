@@ -40,6 +40,7 @@
         type="number"
         size="30"
         pInputText
+        (ngModelChange)="scaleTextField('power', 30)"
       >
       <label for="power-input">Power</label>
     </span>
@@ -155,7 +156,7 @@
     <div id="card" class="card-size">
       <div id="card-name-area"><div id="card-name">{{this.cardName}}</div></div>
       <div id="total-cost-area"><div id="total-cost">{{this.totalCost}}</div></div>
-      <div id="power">{{this.power}}</div>
+      <div id="power-area"><div id="power">{{this.power}}</div></div>
       <div id="character-area"><div id="character">{{this.character}}</div></div>
       <div id="special-trait-area"><div id="special-trait">{{this.specialTrait}}</div></div>
       <div id="era-area"><div id="era">{{this.era}}</div></div>
