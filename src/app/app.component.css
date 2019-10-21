@@ -93,6 +93,11 @@ textarea {
   box-shadow: 0 0 20px 3px #d4d01d;
 }
 
+.color-button:focus {
+  outline-style: none;
+  box-shadow: 0 0 20px 3px #d4d01d;
+}
+
 #black-btn {
   background-color: black;
   border-color: black;
