@@ -6,7 +6,7 @@ I am completely unafiliated with Akira Toriyama, DragonBall, Bandai, etc. etc. P
 
 ## Site
 
-You can see the live site [here](http://dbscg-maker.s3-website-us-east-1.amazonaws.com/).
+You can see the live site [here](http:shenwrong.com/).
 
 ## Local Development
 
