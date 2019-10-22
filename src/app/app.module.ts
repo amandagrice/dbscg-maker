@@ -12,6 +12,7 @@ import {InputSwitchModule} from "primeng/inputswitch";
 import {DropdownModule} from "primeng/dropdown";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     InputSwitchModule,
     DropdownModule,
     InputTextareaModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

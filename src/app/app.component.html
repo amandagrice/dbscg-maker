@@ -6,10 +6,10 @@
 
     <div id="color-button-holder" class="large-bottom-margin">
     <span id="color-buttons">
-      <button id="black-btn"  type="button" class="color-button" (click)="setFrameColor('black')"></button>
-      <button id="blue-btn"   type="button" class="color-button" (click)="setFrameColor('blue')"></button>
-      <button id="green-btn"  type="button" class="color-button" (click)="setFrameColor('green')"></button>
-      <button id="red-btn"    type="button" class="color-button" (click)="setFrameColor('red')"></button>
+      <button id="black-btn" type="button" class="color-button" (click)="setFrameColor('black')"></button>
+      <button id="blue-btn" type="button" class="color-button" (click)="setFrameColor('blue')"></button>
+      <button id="green-btn" type="button" class="color-button" (click)="setFrameColor('green')"></button>
+      <button id="red-btn" type="button" class="color-button" (click)="setFrameColor('red')"></button>
       <button id="yellow-btn" type="button" class="color-button" (click)="setFrameColor('yellow')"></button>
     </span>
     </div>
@@ -29,7 +29,19 @@
     </div>
 
     <div class="large-bottom-margin">
-      <input id="art-input" type="file" name="myFile" (change)="setCardArt($event)">
+      <input id="art-input" type="file" name="myFile" (change)="setCardArt($event)"><br/>
+      <button (click)="rotateLeft()">Rotate left</button>
+      <br/>
+      <button (click)="rotateRight()">Rotate right</button>
+      <br/>
+      <button (click)="flipHorizontal()">Flip horizontal</button>
+      <br/>
+      <button (click)="flipVertical()">Flip vertical</button>
+      <br/>
+      <button (click)="resetImage()">Reset image</button>
+      <br/>
+      <button (click)="saveImage()">Save image</button>
+      <br/>
     </div>
 
     <div>
@@ -154,16 +166,29 @@
 
   <div id="card-display-holder">
     <div id="card" class="card-size">
-      <div id="card-name-area"><div id="card-name">{{this.cardName}}</div></div>
-      <div id="total-cost-area"><div id="total-cost">{{this.totalCost}}</div></div>
-      <div id="power-area"><div id="power">{{this.power}}</div></div>
-      <div id="character-area"><div id="character">{{this.character}}</div></div>
-      <div id="special-trait-area"><div id="special-trait">{{this.specialTrait}}</div></div>
-      <div id="era-area"><div id="era">{{this.era}}</div></div>
+      <div id="card-name-area">
+        <div id="card-name">{{this.cardName}}</div>
+      </div>
+      <div id="total-cost-area">
+        <div id="total-cost">{{this.totalCost}}</div>
+      </div>
+      <div id="power-area">
+        <div id="power">{{this.power}}</div>
+      </div>
+      <div id="character-area">
+        <div id="character">{{this.character}}</div>
+      </div>
+      <div id="special-trait-area">
+        <div id="special-trait">{{this.specialTrait}}</div>
+      </div>
+      <div id="era-area">
+        <div id="era">{{this.era}}</div>
+      </div>
       <div *ngIf="cardArt"><img id="card-art" class="card-size" [src]="cardArt" height="200" alt="User Art"></div>
       <div id="skill">{{this.skill}}</div>
       <img src='{{selectedFrameResource}}' alt="Card Frame" width="100%" height="100%">
-      <img *ngIf="showCardTextBox" class="layer-asset" [src]="assets + colorResources[cardColor]['box']" alt="card text">
+      <img *ngIf="showCardTextBox" class="layer-asset" [src]="assets + colorResources[cardColor]['box']"
+           alt="card text">
       <div id="specified-cost"></div>
       <img *ngIf="selectedCombo" class="layer-asset" [src]="assets + selectedCombo['cost']" alt="combo cost">
       <img *ngIf="selectedCombo" class="layer-asset" [src]="assets + selectedCombo['power']" alt="combo power">
@@ -171,5 +196,22 @@
   </div>
 </div>
 
-
+<div>
+  <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [containWithinAspectRatio]="containWithinAspectRatio"
+    [aspectRatio]="472.5 / 660"
+    [onlyScaleDown]="true"
+    [roundCropper]="false"
+    format="png"
+    outputType="base64"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()"
+    [style.display]="showCropper ? null : 'none'"
+    [alignImage]="'left'"
+  ></image-cropper>
+</div>
 

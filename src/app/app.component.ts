@@ -1,4 +1,5 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
+import {ImageCroppedEvent, ImageCropperComponent} from "ngx-image-cropper";
 
 interface Combo {
   name: string;
@@ -82,6 +83,61 @@ export class AppComponent {
     'era': 10
   };
 
+  isEditingCardArt = false;
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+  showCropper = false;
+  containWithinAspectRatio = false;
+
+  @ViewChild(ImageCropperComponent, {static: true}) imageCropper: ImageCropperComponent;
+
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+    console.log(event);
+  }
+
+  imageLoaded() {
+    this.showCropper = true;
+    console.log('Image loaded');
+  }
+
+  cropperReady() {
+    console.log('Cropper ready');
+  }
+
+  loadImageFailed() {
+    console.log('Load failed');
+  }
+
+  rotateLeft() {
+    this.imageCropper.rotateLeft();
+    this.cardArt = this.croppedImage;
+  }
+
+  rotateRight() {
+    this.imageCropper.rotateRight();
+    this.cardArt = this.croppedImage;
+  }
+
+  flipHorizontal() {
+    this.imageCropper.flipHorizontal();
+    this.cardArt = this.croppedImage;
+  }
+
+  flipVertical() {
+    this.imageCropper.flipVertical();
+    this.cardArt = this.croppedImage;
+  }
+
+  resetImage() {
+    this.imageCropper.resetImage();
+    this.cardArt = this.croppedImage;
+  }
+
+  saveImage() {
+    this.cardArt = this.croppedImage;
+  }
+
   setFrameColor(color) {
     this.cardColor = color;
     this.selectedFrameResource = this.assets + this.colorResources[color]['template'];
@@ -89,6 +145,7 @@ export class AppComponent {
   }
 
   setCardArt(event) {
+    this.imageChangedEvent = event;
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
@@ -97,6 +154,7 @@ export class AppComponent {
       }
     }
   }
+
 
   parseForKeywords() {
     this.skillHighlighted = this.skill;
