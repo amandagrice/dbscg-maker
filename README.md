@@ -6,7 +6,7 @@ I am completely unafiliated with Akira Toriyama, DragonBall, Bandai, etc. etc. P
 
 ## Site
 
-You can see the live site [here](http://dbscg-maker.s3-website-us-east-1.amazonaws.com/).
+You can see the live site [here](http:shenwrong.com/).
 
 ## Local Development
 
@@ -18,7 +18,6 @@ The app will automatically reload if you change any of the source files.
 
 ## On my to-do list:
 - update this readme lol
-- make color selection glow on selected; remove the square
 - Add a cropping and adjustment option to card art
 - make first three digits of power smaller
 - add manual skill highlighting
