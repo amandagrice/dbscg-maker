@@ -83,11 +83,11 @@ export class AppComponent {
     'era': 10
   };
 
-  isEditingCardArt = false;
   imageChangedEvent: any = '';
   croppedImage: any = '';
   showCropper = false;
   containWithinAspectRatio = false;
+  displayCardArtEditor = false;
 
   @ViewChild(ImageCropperComponent, {static: true}) imageCropper: ImageCropperComponent;
 

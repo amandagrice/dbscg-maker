@@ -29,19 +29,8 @@
     </div>
 
     <div class="large-bottom-margin">
-      <input id="art-input" type="file" name="myFile" (change)="setCardArt($event)"><br/>
-      <button (click)="rotateLeft()">Rotate left</button>
-      <br/>
-      <button (click)="rotateRight()">Rotate right</button>
-      <br/>
-      <button (click)="flipHorizontal()">Flip horizontal</button>
-      <br/>
-      <button (click)="flipVertical()">Flip vertical</button>
-      <br/>
-      <button (click)="resetImage()">Reset image</button>
-      <br/>
-      <button (click)="saveImage()">Save image</button>
-      <br/>
+      <button pButton type="button" label="Edit Card Art" class="ui-button-rounded"
+              (click)="displayCardArtEditor = true"></button>
     </div>
 
     <div>
@@ -196,22 +185,38 @@
   </div>
 </div>
 
-<div>
-  <image-cropper
-    [imageChangedEvent]="imageChangedEvent"
-    [maintainAspectRatio]="true"
-    [containWithinAspectRatio]="containWithinAspectRatio"
-    [aspectRatio]="472.5 / 660"
-    [onlyScaleDown]="true"
-    [roundCropper]="false"
-    format="png"
-    outputType="base64"
-    (imageCropped)="imageCropped($event)"
-    (imageLoaded)="imageLoaded()"
-    (cropperReady)="cropperReady()"
-    (loadImageFailed)="loadImageFailed()"
-    [style.display]="showCropper ? null : 'none'"
-    [alignImage]="'left'"
-  ></image-cropper>
-</div>
+<p-dialog [(visible)]="displayCardArtEditor" draggable="true"
+          [style]="{width: '800px', height: '600px'}" [modal]="true">
+  <div id="card-art-editor">
+    <input id="art-input" type="file" name="myFile" (change)="setCardArt($event)"><br/>
+    <button (click)="rotateLeft()">Rotate left</button>
+    <button (click)="rotateRight()">Rotate right</button>
+    <button (click)="flipHorizontal()">Flip horizontal</button>
+    <button (click)="flipVertical()">Flip vertical</button>
+    <button (click)="resetImage()">Reset image</button>
+    <button (click)="saveImage()">Save image</button>
+    <br/>
+    <div id="cropper-area">
+    <image-cropper
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [containWithinAspectRatio]="containWithinAspectRatio"
+      [aspectRatio]="472.5 / 660"
+      [onlyScaleDown]="true"
+      [roundCropper]="false"
+      format="png"
+      outputType="base64"
+      (imageCropped)="imageCropped($event)"
+      (imageLoaded)="imageLoaded()"
+      (cropperReady)="cropperReady()"
+      (loadImageFailed)="loadImageFailed()"
+      [style.display]="showCropper ? null : 'none'"
+      [alignImage]="'left'"
+    ></image-cropper>
+    </div>
+  </div>
+</p-dialog>
+
+
+
 

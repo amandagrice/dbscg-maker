@@ -311,4 +311,11 @@ textarea {
 .pink-skill {
   background-color: #d52298 !important;
 }
+.ui-dialog-content {
+  width: 800px;
+  height: 600px;
+}
 
+image-cropper {
+  max-height: 500px !important;
+}

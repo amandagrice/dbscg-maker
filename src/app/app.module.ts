@@ -13,6 +13,7 @@ import {DropdownModule} from "primeng/dropdown";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { ImageCropperModule } from 'ngx-image-cropper';
+import {DialogModule} from "primeng/dialog";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     DropdownModule,
     InputTextareaModule,
     MatSlideToggleModule,
-    ImageCropperModule
+    ImageCropperModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
