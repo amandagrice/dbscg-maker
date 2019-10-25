@@ -319,3 +319,45 @@ textarea {
 image-cropper {
   max-height: 500px !important;
 }
+
+#rotate-left:hover {
+  cursor: pointer;
+  transform: rotate(-90deg);
+}
+
+#rotate-right:hover {
+  cursor: pointer;
+  transform: rotate(90deg);
+}
+
+#reflect-vertically:hover {
+  cursor: pointer;
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+}
+
+#reflect-horizontally:hover {
+  cursor: pointer;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+}
+
+#save-changes:hover {
+  cursor: pointer;
+  box-shadow: 0 0 20px 3px #d4d01d;
+}
+
+#clear-changes:hover {
+  cursor: pointer;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.image-editor-button {
+  margin-top: 10px;
+  margin-right: 10px;
+}

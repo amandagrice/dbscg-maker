@@ -189,12 +189,12 @@
           [style]="{width: '800px', height: '600px'}" [modal]="true">
   <div id="card-art-editor">
     <input id="art-input" type="file" name="myFile" (change)="setCardArt($event)"><br/>
-    <button (click)="rotateLeft()">Rotate left</button>
-    <button (click)="rotateRight()">Rotate right</button>
-    <button (click)="flipHorizontal()">Flip horizontal</button>
-    <button (click)="flipVertical()">Flip vertical</button>
-    <button (click)="resetImage()">Reset image</button>
-    <button (click)="saveImage()">Save image</button>
+    <img id="rotate-left" class="image-editor-button" (click)="rotateLeft()" src="../assets/icons/rotate-left.png">
+    <img id="rotate-right" class="image-editor-button" (click)="rotateRight()" src="../assets/icons/rotate-right.png">
+    <img id="reflect-vertically" class="image-editor-button" (click)="flipVertical()" src="../assets/icons/flipHorizontal.png">
+    <img id="reflect-horizontally" class="image-editor-button" (click)="flipHorizontal()" src="../assets/icons/flipVertical.png">
+    <img id="clear-changes" class="image-editor-button" (click)="resetImage()" src="../assets/icons/clearChanges.png">
+    <img id="save-changes" class="image-editor-button" (click)="saveImage()" src="../assets/icons/saveChanges.png">
     <br/>
     <div id="cropper-area">
     <image-cropper
@@ -216,7 +216,4 @@
     </div>
   </div>
 </p-dialog>
-
-
-
 
