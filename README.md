@@ -18,7 +18,6 @@ The app will automatically reload if you change any of the source files.
 
 ## On my to-do list:
 - update this readme lol
-- Add a cropping and adjustment option to card art
 - make first three digits of power smaller
 - add manual skill highlighting
 - make specified cost unlimited; calculate instead of using array
