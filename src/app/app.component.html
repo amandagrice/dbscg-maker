@@ -102,7 +102,6 @@
         size="30"
         pInputText
         [min]="0"
-        [max]="10"
         (ngModelChange)="setDrops()"
       >
       <label for="specified-cost-input">Specified Cost</label>
@@ -189,12 +188,12 @@
           [style]="{width: '800px', height: '600px'}" [modal]="true">
   <div id="card-art-editor">
     <input id="art-input" type="file" name="myFile" (change)="setCardArt($event)"><br/>
-    <img id="rotate-left" class="image-editor-button" (click)="rotateLeft()" src="../assets/icons/rotate-left.png">
-    <img id="rotate-right" class="image-editor-button" (click)="rotateRight()" src="../assets/icons/rotate-right.png">
-    <img id="reflect-vertically" class="image-editor-button" (click)="flipVertical()" src="../assets/icons/flipHorizontal.png">
-    <img id="reflect-horizontally" class="image-editor-button" (click)="flipHorizontal()" src="../assets/icons/flipVertical.png">
-    <img id="clear-changes" class="image-editor-button" (click)="resetImage()" src="../assets/icons/clearChanges.png">
-    <img id="save-changes" class="image-editor-button" (click)="saveImage()" src="../assets/icons/saveChanges.png">
+    <img id="rotate-left" class="image-editor-button" (click)="rotateLeft()" src="../assets/icons/rotate-left.png" alt="rotate left">
+    <img id="rotate-right" class="image-editor-button" (click)="rotateRight()" src="../assets/icons/rotate-right.png" alt="rotate right">
+    <img id="reflect-vertically" class="image-editor-button" (click)="flipVertical()" src="../assets/icons/flipHorizontal.png" alt="reflect vertically">
+    <img id="reflect-horizontally" class="image-editor-button" (click)="flipHorizontal()" src="../assets/icons/flipVertical.png" alt="reflect horizontally">
+    <img id="clear-changes" class="image-editor-button" (click)="resetImage()" src="../assets/icons/clearChanges.png" alt="clear changes">
+    <img id="save-changes" class="image-editor-button" (click)="saveImage()" src="../assets/icons/saveChanges.png" alt="save changes">
     <br/>
     <div id="cropper-area">
     <image-cropper
@@ -208,8 +207,6 @@
       outputType="base64"
       (imageCropped)="imageCropped($event)"
       (imageLoaded)="imageLoaded()"
-      (cropperReady)="cropperReady()"
-      (loadImageFailed)="loadImageFailed()"
       [style.display]="showCropper ? null : 'none'"
       [alignImage]="'left'"
     ></image-cropper>

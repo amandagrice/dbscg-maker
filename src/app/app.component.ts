@@ -101,14 +101,6 @@ export class AppComponent {
     console.log('Image loaded');
   }
 
-  cropperReady() {
-    console.log('Cropper ready');
-  }
-
-  loadImageFailed() {
-    console.log('Load failed');
-  }
-
   rotateLeft() {
     this.imageCropper.rotateLeft();
     this.cardArt = this.croppedImage;
@@ -155,7 +147,6 @@ export class AppComponent {
     }
   }
 
-
   parseForKeywords() {
     this.skillHighlighted = this.skill;
 
@@ -187,39 +178,26 @@ export class AppComponent {
     document.getElementById('specified-cost').innerHTML = '';
     const dropsArray = [];
     const radius = 40;
-    const theta = [
-      -1 * (Math.PI / 6),   // start 30 degrees
-      0,
-      Math.PI / 6,
-      Math.PI / 3,
-      Math.PI / 2,
-      2 * (Math.PI / 3),    // end 270 degrees
-      -1 * (Math.PI / 12),  // loop back around and squeeze in between - between 0 & 1
-      (Math.PI / 12),       // between 1 & 2, etc.
-      (Math.PI / 4),
-      -19 * (Math.PI / 12),
-    ];
+    const minPosition = 0 - Math.PI / 6;
+    const maxAngle = 2 * Math.PI / 3;
+    const spacer = (maxAngle - minPosition) / this.specifiedCost;
 
     if (this.cardColor !== 'black') {
       let i = 0;
-      while (i < this.specifiedCost && i < 11) {
+      let pos = minPosition;
+      while (i < this.specifiedCost) {
         const drop = document.createElement('img');
         drop.src = this.assets + this.colorResources[this.cardColor]['drop'];
         drop.id = "drop" + i;
         dropsArray.push(drop);
         dropsArray[i].style.position = "absolute";
-        if (i < 6) {
-          dropsArray[i].style.zIndex = 10000 + i;
-        } else {
-          dropsArray[i].style.zIndex = 10000 + (i - 6);
-        }
-
-        dropsArray[i].posx = Math.round(radius * (Math.cos(theta[i]))) + 'px';
-        dropsArray[i].posy = Math.round(radius * (Math.sin(theta[i]))) + 'px';
+        dropsArray[i].posx = Math.round(radius * (Math.cos(pos))) + 'px';
+        dropsArray[i].posy = Math.round(radius * (Math.sin(pos))) + 'px';
         dropsArray[i].style.top = parseInt(dropsArray[i].posy.slice(0, -2)) + 'px';
         dropsArray[i].style.left = parseInt(dropsArray[i].posx.slice(0, -2)) + 'px';
         document.getElementById('specified-cost').appendChild(dropsArray[i]);
-        i = i + 1;
+        i += 1;
+        pos += spacer;
       }
     }
   }
