@@ -180,8 +180,12 @@ export class AppComponent {
     const radius = 40;
     const minPosition = 0 - Math.PI / 6;
     const maxAngle = 2 * Math.PI / 3;
-    const spacer = (maxAngle - minPosition) / this.specifiedCost;
-
+    let spacer;
+    if (this.specifiedCost < 6) {
+      spacer = Math.PI / 6;
+    } else {
+      spacer = (maxAngle - minPosition) / this.specifiedCost;
+    }
     if (this.cardColor !== 'black') {
       let i = 0;
       let pos = minPosition;
