@@ -20,7 +20,6 @@ The app will automatically reload if you change any of the source files.
 - update this readme lol
 - make first three digits of power smaller
 - add manual skill highlighting
-- make specified cost unlimited; calculate instead of using array
 - Fix card text font
 - Add ability to create leaders
 - Add ability to create extra cards
