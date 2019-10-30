@@ -1,5 +1,6 @@
 import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ImageCroppedEvent, ImageCropperComponent} from "ngx-image-cropper";
+import {max} from "rxjs/operators";
 
 interface Combo {
   name: string;
@@ -175,35 +176,39 @@ export class AppComponent {
   }
 
   setDrops() {
-    document.getElementById('specified-cost').innerHTML = '';
-    const dropsArray = [];
-    const radius = 40;
-    const minPosition = 0 - Math.PI / 6;
-    const maxAngle = 2 * Math.PI / 3;
-    let spacer;
-    if (this.specifiedCost < 6) {
-      spacer = Math.PI / 6;
-    } else {
-      spacer = (maxAngle - minPosition) / this.specifiedCost;
-    }
     if (this.cardColor !== 'black') {
-      let i = 0;
-      let pos = minPosition;
-      while (i < this.specifiedCost) {
-        const drop = document.createElement('img');
-        drop.src = this.assets + this.colorResources[this.cardColor]['drop'];
-        drop.id = "drop" + i;
-        dropsArray.push(drop);
-        dropsArray[i].style.position = "absolute";
-        dropsArray[i].posx = Math.round(radius * (Math.cos(pos))) + 'px';
-        dropsArray[i].posy = Math.round(radius * (Math.sin(pos))) + 'px';
-        dropsArray[i].style.top = parseInt(dropsArray[i].posy.slice(0, -2)) + 'px';
-        dropsArray[i].style.left = parseInt(dropsArray[i].posx.slice(0, -2)) + 'px';
-        document.getElementById('specified-cost').appendChild(dropsArray[i]);
-        i += 1;
-        pos += spacer;
+      document.getElementById('specified-cost').innerHTML = '';
+      const minPosition = 0 - Math.PI / 6;
+      const maxPosition = 2 * Math.PI / 3;
+      let delta = this.calculateDistanceBetweenDrops(minPosition, maxPosition);
+      let currentPosition = minPosition;
+      for (let i = 0; i < this.specifiedCost; i++) {
+        this.createDropAtPosition(currentPosition);
+        currentPosition += delta;
       }
     }
+  }
+
+  private calculateDistanceBetweenDrops(minPosition, maxPosition) {
+    if (this.specifiedCost < 6) {
+      return Math.PI / 6;
+    } else {
+      return (maxPosition - minPosition) / this.specifiedCost;
+    }
+  }
+
+  private createDropAtPosition(pos) {
+    const costAreaRadius = 40;
+    const drop: any = document.createElement('img');
+    let x = Math.round(costAreaRadius * (Math.cos(pos)));
+    let y = Math.round(costAreaRadius * (Math.sin(pos)));
+    drop.src = this.assets + this.colorResources[this.cardColor]['drop'];
+    drop.style.position = "absolute";
+    drop.posx = x + 'px';
+    drop.posy = y + 'px';
+    drop.style.left = x + 'px';
+    drop.style.top = y + 'px';
+    document.getElementById('specified-cost').appendChild(drop);
   }
 
   scaleTextField(field, maxSize) {
