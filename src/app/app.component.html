@@ -187,21 +187,21 @@
 
 
 
-<p-dialog id="photo-editor-dialog" [(visible)]="displayCardArtEditor" draggable="true"
+<p-dialog id="photo-editor-dialog" [(visible)]="displayCardArtEditor" draggable="true" dismissableMask="true"
           [style]="{width: '800px', height: '600px'}" [modal]="true">
   <div id="card-art-editor">
     <input id="art-input" type="file" name="myFile" (change)="setCardArt($event)"><br/>
-    <img id="rotate-left" class="image-editor-button" (click)="rotateLeft()" src="../assets/icons/rotate-left.png"
+    <img id="rotate-left" class="image-editor-button" (click)="rotateLeft()" src="../assets/icons/rotate.svg"
          alt="rotate left">
-    <img id="rotate-right" class="image-editor-button" (click)="rotateRight()" src="../assets/icons/rotate-right.png"
+    <img id="rotate-right" class="image-editor-button" (click)="rotateRight()" src="../assets/icons/rotate.svg"
          alt="rotate right">
     <img id="reflect-vertically" class="image-editor-button" (click)="flipVertical()"
-         src="../assets/icons/flipHorizontal.png" alt="reflect vertically">
+         src="../assets/icons/flip.svg" alt="reflect vertically">
     <img id="reflect-horizontally" class="image-editor-button" (click)="flipHorizontal()"
-         src="../assets/icons/flipVertical.png" alt="reflect horizontally">
-    <img id="clear-changes" class="image-editor-button" (click)="resetImage()" src="../assets/icons/clearChanges.png"
+         src="../assets/icons/flip.svg" alt="reflect horizontally">
+    <img id="clear-changes" class="image-editor-button" (click)="resetImage()" src="../assets/icons/clearChanges.svg"
          alt="clear changes">
-    <img id="save-changes" class="image-editor-button" (click)="saveImage()" src="../assets/icons/saveChanges.png"
+    <img id="save-changes" class="image-editor-button" (click)="saveImage()" src="../assets/icons/save.svg"
          alt="save changes">
     <br/>
     <div id="cropper-area">
@@ -223,8 +223,15 @@
   </div>
 </p-dialog>
 
-<p-dialog [(visible)]="displayFooter" draggable="true" [modal]="true">
-  <div>Footer Here</div>
+<p-dialog [(visible)]="displayFooter" draggable="true" [modal]="true" header="Credits / Disclaimer" dismissableMask="true">
+  <div>
+    <div>This site is completely unaffiliated with Akira Toriyama, DragonBall, Bandai, etc. This website was created entirely for fun, to be used only for fun.</div>
+    <div>Please do not abuse it.</div><br />
+    <div>Don't like something? Please feel free to help improve the project. <a href="https://github.com/amandagrice/dbscg-maker" title="github">GitHub here.</a></div> <br />
+    <div>Or contact the creator at <a href="mailto:algrice@bu.edu">algrice@bu.edu</a></div> <br />
+    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div><br />
+    <div>Thanks to <a href="https://www.reddit.com/r/DBS_CardGame/comments/96ok5e/createacard_contest_battle_card_edition/">u/kyuri462</a> on reddit for the card assets.</div>
+  </div>
 </p-dialog>
 
 <div id="footer">
