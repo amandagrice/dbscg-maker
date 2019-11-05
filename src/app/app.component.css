@@ -43,6 +43,15 @@ textarea {
   padding-left: 175px;
   min-width: 300px;
 }
+@media only screen and (min-width: 1000px) {
+  #footer {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    width: 100%;
+    text-align: left;
+  }
+}
 
 @media only screen and (max-width: 1000px) {
   #form-content, #card-display-holder {
@@ -63,6 +72,10 @@ textarea {
   }
   #main-title {
     display: none;
+  }
+
+  #footer {
+    margin-top: 15px;
   }
 }
 
@@ -311,7 +324,7 @@ textarea {
 .pink-skill {
   background-color: #d52298 !important;
 }
-.ui-dialog-content {
+#photo-editor-dialog .ui-dialog-content {
   width: 800px;
   height: 600px;
 }
@@ -361,3 +374,9 @@ image-cropper {
   margin-top: 10px;
   margin-right: 10px;
 }
+
+#info-icon {
+  cursor: pointer;
+  width: 50px;
+}
+

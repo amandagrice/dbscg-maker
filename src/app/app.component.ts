@@ -89,6 +89,7 @@ export class AppComponent {
   showCropper = false;
   containWithinAspectRatio = false;
   displayCardArtEditor = false;
+  displayFooter = false;
 
   @ViewChild(ImageCropperComponent, {static: true}) imageCropper: ImageCropperComponent;
 
@@ -227,6 +228,10 @@ export class AppComponent {
       }
     }
     this.fontsize[field] = font;
+  }
+
+  openFooter() {
+    this.displayFooter = true;
   }
 
 }
