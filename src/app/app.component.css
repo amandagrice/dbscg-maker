@@ -361,3 +361,10 @@ image-cropper {
   width: 50px;
 }
 
+#watermark {
+  position: absolute;
+  bottom: 15px;
+  right: 17px;
+  font-size: 8px;
+  color: white;
+}
