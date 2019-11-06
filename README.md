@@ -23,7 +23,6 @@ The app will automatically reload if you change any of the source files.
 - Fix card text font
 - Add ability to create leaders
 - Add ability to create extra cards
-- Add set value in corner
 
 
 ## Can I help?
