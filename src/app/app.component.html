@@ -66,8 +66,23 @@
         >
       </textarea>
     </span>
-      <button pButton type="button" label="Highlight Keywords" class="ui-button-rounded"
-              (click)="parseForKeywords()"></button>
+
+      <span>
+        <img id="highlight-help" src="../assets/icons/information.svg" alt="explain highlights">
+        <button id="auto-highlight" pButton type="button" label="Auto" class="ui-button-rounded"
+                (click)="parseForKeywords()"></button>
+        <button id="blue-highlight-btn"   type="button" class="highlight-btn"></button>
+        <button id="red-highlight-btn"    type="button" class="highlight-btn"></button>
+        <button id="yellow-highlight-btn" type="button" class="highlight-btn"></button>
+        <button id="pink-highlight-btn"   type="button" class="highlight-btn"></button>
+        <input
+          id="hex-input"
+          placeholder="#c0ffee"
+          size="30"
+          pInputText
+        >
+      </span>
+
     </div>
 
     <div class="large-bottom-margin">

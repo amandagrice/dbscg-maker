@@ -102,11 +102,11 @@ textarea {
   margin-right: 25px;
 }
 
-.color-button:hover{
+.color-button:hover, .highlight-btn:hover {
   box-shadow: 0 0 20px 3px #d4d01d;
 }
 
-.color-button:focus {
+.color-button:focus, .highlight-btn:focus {
   outline-style: none;
   box-shadow: 0 0 20px 3px #d4d01d;
 }
@@ -300,6 +300,21 @@ textarea {
   white-space: pre-wrap;
 }
 
+#highlight-help {
+  width: 25px;
+  vertical-align: bottom;
+  margin-right: 5px;
+}
+
+#highlight-help:hover {
+  background-color: #d4d01d;
+  border-radius: 50%;
+}
+
+#hex-input {
+  width: 87px;
+}
+
 .skill-highlight {
   font-family: Georgia, sans-serif !important;
   color: white !important;
@@ -307,6 +322,40 @@ textarea {
   -webkit-text-stroke: 0 black !important;
   padding-left: 4px;
   padding-right: 4px;
+}
+
+.highlight-btn {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 5px;
+  bottom: 0;
+  vertical-align: sub;
+}
+
+#auto-highlight {
+  margin-right: 5px;
+  vertical-align: bottom;
+}
+
+#blue-highlight-btn {
+  background-color: deepskyblue;
+  border-color: deepskyblue;
+}
+
+#red-highlight-btn {
+  background-color: #ff0a16;
+  border-color: #ff0a16;
+}
+
+#yellow-highlight-btn {
+  background-color: #d5a90b;
+  border-color: #d5a90b;
+}
+
+#pink-highlight-btn {
+background-color: #d52298;
+border-color: #d52298;
 }
 
 .blue-skill {
@@ -367,4 +416,8 @@ image-cropper {
   right: 17px;
   font-size: 8px;
   color: white;
+}
+
+#save-changes:hover  {
+  box-shadow: 0 0 20px 3px #d4d01d;
 }
