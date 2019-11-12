@@ -1,6 +1,5 @@
 import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ImageCroppedEvent, ImageCropperComponent} from "ngx-image-cropper";
-import {max} from "rxjs/operators";
 
 interface Combo {
   name: string;
@@ -147,6 +146,14 @@ export class AppComponent {
         this.cardArt = event.target['result'];
       }
     }
+  }
+
+  getHighlightedWord() {
+    const cardTextInput = <HTMLInputElement>document.getElementById("card-text-input");
+    const selected = cardTextInput.value.substr(cardTextInput.selectionStart, cardTextInput.selectionEnd - cardTextInput.selectionStart);
+    console.log(selected);
+    console.log(cardTextInput.selectionStart);
+    console.log(cardTextInput.selectionEnd);
   }
 
   parseForKeywords() {
