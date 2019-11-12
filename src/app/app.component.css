@@ -365,22 +365,6 @@ background-color: #d52298;
 border-color: #d52298;
 }
 
-.blue-skill {
-  background-color: deepskyblue !important;
-}
-
-.red-skill {
-  background-color: #ff0a16 !important;
-}
-
-.yellow-skill {
-  background-color: #d59e2c !important;
-}
-
-.pink-skill {
-  background-color: #d52298 !important;
-}
-
 #photo-editor-dialog .ui-dialog-content {
   width: 800px;
   height: 600px;

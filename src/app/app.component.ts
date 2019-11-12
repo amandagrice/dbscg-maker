@@ -68,26 +68,20 @@ export class AppComponent {
   selectedCombo: Combo;
   skill: string;
   skillHighlighted: string;
-  skillHex: string;
-  blueKeywordSkills: string[] = [
-    "Auto"
+  skillHex: string = '#c0ffee';
+  keywordSkills: Highlight[] = [
+    {word: 'Auto', color: '#00BFFF'},
+    {word: 'Barrier', color: '#ff0a16'},
+    {word: 'Blocker', color: '#ff0a16'},
+    {word: 'Critical', color: '#ff0a16'},
+    {word: 'Double Strike', color: '#ff0a16'},
+    {word: 'Dual Attack', color: '#ff0a16'},
+    {word: 'Once per turn', color: '#ff0a16'},
+    {word: 'Super Combo', color: '#ff0a16'},
+    {word: 'Triple Attack', color: '#ff0a16'},
+    {word: 'Triple Strike', color: '#ff0a16'},
+    {word: 'Permanent', color: '#d52298'},
   ];
-  redKeywordSkills: string[] = [
-    "Barrier",
-    "Blocker",
-    "Critical",
-    "Double Strike",
-    "Dual Attack",
-    "Once per turn",
-    "Super Combo",
-    "Triple Attack",
-    "Triple Strike"
-  ];
-  yellowKeywordSkills: string[] = [];
-  pinkKeywordSkills: string[] = [
-    "Permanent"
-  ];
-  customKeywordSkills: Highlight[] = [];
   fontsize: any = {
     'total-cost': 43,
     'card-name': 35,
@@ -96,7 +90,6 @@ export class AppComponent {
     'special-trait': 10,
     'era': 10
   };
-
   imageChangedEvent: any = '';
   croppedImage: any = '';
   showCropper = false;
@@ -165,93 +158,25 @@ export class AppComponent {
     return cardTextInput.value.substr(cardTextInput.selectionStart, cardTextInput.selectionEnd - cardTextInput.selectionStart);
   }
 
-  highlightInBlue() {
-    const selected = this.getHighlightedWord();
-    if (selected.length > 0) {
-      this.blueKeywordSkills.push(selected);
-    }
-    this.parseForKeywords();
-  }
-
-  highlightInRed() {
-    const selected = this.getHighlightedWord();
-    if (selected.length > 0) {
-      this.redKeywordSkills.push(selected);
-    }
-    this.parseForKeywords();
-  }
-
-  highlightInYellow() {
-    const selected = this.getHighlightedWord();
-    if (selected.length > 0) {
-      this.yellowKeywordSkills.push(selected);
-    }
-    this.parseForKeywords();
-  }
-
-  highlightInPink() {
-    const selected = this.getHighlightedWord();
-    if (selected.length > 0) {
-      this.pinkKeywordSkills.push(selected);
-    }
-    this.parseForKeywords();
-  }
-
-  highlightInCustom() {
-    const selected = this.getHighlightedWord();
-    if (selected.length > 0) {
-      if (!this.skillHex || this.skillHex.length === 0) {
-        this.skillHex = '#C0ffee';
-      }
-      let custom = {
-        word: selected,
-        color: this.skillHex
+  addKeywordToList(color) {
+    const selectedWord = this.getHighlightedWord();
+    if (selectedWord.length > 0) {
+      let keyword = {
+        word: selectedWord,
+        color: color
       };
-      this.customKeywordSkills.push(custom);
+      this.keywordSkills.push(keyword);
     }
-    this.parseForKeywords();
+    this.highlightKeywords();
   }
 
-  parseForKeywords() {
+  highlightKeywords() {
     this.skillHighlighted = this.skill;
-
-    for (let i = 0; i < this.blueKeywordSkills.length; i++) {
-      if (this.skillHighlighted.indexOf(this.blueKeywordSkills[i]) > -1) {
-        const re = new RegExp(this.blueKeywordSkills[i], "g");
+    for (let i = 0; i < this.keywordSkills.length; i++) {
+      if (this.skillHighlighted.indexOf(this.keywordSkills[i]['word']) > -1) {
+        const re = new RegExp(this.keywordSkills[i]['word'], "g");
         this.skillHighlighted = this.skillHighlighted.replace(re,
-          '<span class="skill-highlight blue-skill">' + this.blueKeywordSkills[i] + '</span>');
-      }
-    }
-
-    for (let i = 0; i < this.redKeywordSkills.length; i++) {
-      if (this.skillHighlighted.indexOf(this.redKeywordSkills[i]) > -1) {
-        const re = new RegExp(this.redKeywordSkills[i], "g");
-        this.skillHighlighted = this.skillHighlighted.replace(re,
-          '<span class="skill-highlight red-skill">' + this.redKeywordSkills[i] + '</span>');
-      }
-    }
-
-    for (let i = 0; i < this.yellowKeywordSkills.length; i++) {
-      if (this.skillHighlighted.indexOf(this.yellowKeywordSkills[i]) > -1) {
-        const re = new RegExp(this.yellowKeywordSkills[i], "g");
-        this.skillHighlighted = this.skillHighlighted.replace(re,
-          '<span class="skill-highlight yellow-skill">' + this.yellowKeywordSkills[i] + '</span>');
-      }
-    }
-
-    for (let i = 0; i < this.pinkKeywordSkills.length; i++) {
-      if (this.skillHighlighted.indexOf(this.pinkKeywordSkills[i]) > -1) {
-        const re = new RegExp(this.pinkKeywordSkills[i], "g");
-        this.skillHighlighted = this.skillHighlighted.replace(re,
-          '<span class="skill-highlight pink-skill">' + this.pinkKeywordSkills[i] + '</span>');
-      }
-    }
-
-    for (let i = 0; i < this.customKeywordSkills.length; i++) {
-      if (this.skillHighlighted.indexOf(this.customKeywordSkills[i]['word']) > -1) {
-        const re = new RegExp(this.customKeywordSkills[i]['word'], "g");
-        this.skillHighlighted = this.skillHighlighted.replace(re,
-          '<span class="skill-highlight" style="background-color:' + this.customKeywordSkills[i]['color'] + ';">' + this.customKeywordSkills[i]['word'] + '</span>');
+          '<span class="skill-highlight" style="background-color:' + this.keywordSkills[i]['color'] + ';">' + this.keywordSkills[i]['word'] + '</span>');
       }
     }
     document.getElementById("skill").innerHTML = this.skillHighlighted;
