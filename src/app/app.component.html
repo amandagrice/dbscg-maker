@@ -71,17 +71,22 @@
         <img id="highlight-help" src="../assets/icons/information.svg" alt="explain highlights">
         <button id="auto-highlight" pButton type="button" label="Auto" class="ui-button-rounded"
                 (click)="parseForKeywords()"></button>
+        <img id="clear-highlighting" src="../assets/icons/clearChanges.svg" alt="clear highlights" (click)="removeHighlight()">
+        <br/>
         <button id="blue-highlight-btn"   type="button" class="highlight-btn" (click)="highlightInBlue()"></button>
         <button id="red-highlight-btn"    type="button" class="highlight-btn" (click)="highlightInRed()"></button>
         <button id="yellow-highlight-btn" type="button" class="highlight-btn" (click)="highlightInYellow()"></button>
         <button id="pink-highlight-btn"   type="button" class="highlight-btn" (click)="highlightInPink()"></button>
-        <img id="clear-highlighting" src="../assets/icons/clearChanges.svg" alt="clear highlights" (click)="removeHighlight()">
+        <br/>
         <input
           id="hex-input"
+          [(ngModel)]="skillHex"
           placeholder="#c0ffee"
           size="30"
           pInputText
         >
+        <button pButton type="button" label="Go!" class="ui-button-rounded"
+                (click)="highlightInCustom()"></button>
       </span>
 
     </div>

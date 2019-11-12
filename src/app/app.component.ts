@@ -7,6 +7,11 @@ interface Combo {
   power: string;
 }
 
+interface Highlight {
+  word: string;
+  color: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -63,6 +68,7 @@ export class AppComponent {
   selectedCombo: Combo;
   skill: string;
   skillHighlighted: string;
+  skillHex: string;
   blueKeywordSkills: string[] = [
     "Auto"
   ];
@@ -81,6 +87,7 @@ export class AppComponent {
   pinkKeywordSkills: string[] = [
     "Permanent"
   ];
+  customKeywordSkills: Highlight[] = [];
   fontsize: any = {
     'total-cost': 43,
     'card-name': 35,
@@ -190,6 +197,21 @@ export class AppComponent {
     this.parseForKeywords();
   }
 
+  highlightInCustom() {
+    const selected = this.getHighlightedWord();
+    if (selected.length > 0) {
+      if (!this.skillHex || this.skillHex.length === 0) {
+        this.skillHex = '#C0ffee';
+      }
+      let custom = {
+        word: selected,
+        color: this.skillHex
+      };
+      this.customKeywordSkills.push(custom);
+    }
+    this.parseForKeywords();
+  }
+
   parseForKeywords() {
     this.skillHighlighted = this.skill;
 
@@ -222,6 +244,14 @@ export class AppComponent {
         const re = new RegExp(this.pinkKeywordSkills[i], "g");
         this.skillHighlighted = this.skillHighlighted.replace(re,
           '<span class="skill-highlight pink-skill">' + this.pinkKeywordSkills[i] + '</span>');
+      }
+    }
+
+    for (let i = 0; i < this.customKeywordSkills.length; i++) {
+      if (this.skillHighlighted.indexOf(this.customKeywordSkills[i]['word']) > -1) {
+        const re = new RegExp(this.customKeywordSkills[i]['word'], "g");
+        this.skillHighlighted = this.skillHighlighted.replace(re,
+          '<span class="skill-highlight" style="background-color:' + this.customKeywordSkills[i]['color'] + ';">' + this.customKeywordSkills[i]['word'] + '</span>');
       }
     }
     document.getElementById("skill").innerHTML = this.skillHighlighted;
