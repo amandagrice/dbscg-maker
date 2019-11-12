@@ -63,6 +63,9 @@ export class AppComponent {
   selectedCombo: Combo;
   skill: string;
   skillHighlighted: string;
+  blueKeywordSkills: string[] = [
+    "Auto"
+  ];
   redKeywordSkills: string[] = [
     "Barrier",
     "Blocker",
@@ -73,6 +76,10 @@ export class AppComponent {
     "Super Combo",
     "Triple Attack",
     "Triple Strike"
+  ];
+  yellowKeywordSkills: string[] = [];
+  pinkKeywordSkills: string[] = [
+    "Permanent"
   ];
   fontsize: any = {
     'total-cost': 43,
@@ -94,12 +101,10 @@ export class AppComponent {
 
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
-    console.log(event);
   }
 
   imageLoaded() {
     this.showCropper = true;
-    console.log('Image loaded');
   }
 
   rotateLeft() {
@@ -150,23 +155,50 @@ export class AppComponent {
 
   getHighlightedWord() {
     const cardTextInput = <HTMLInputElement>document.getElementById("card-text-input");
-    const selected = cardTextInput.value.substr(cardTextInput.selectionStart, cardTextInput.selectionEnd - cardTextInput.selectionStart);
-    console.log(selected);
-    console.log(cardTextInput.selectionStart);
-    console.log(cardTextInput.selectionEnd);
+    return cardTextInput.value.substr(cardTextInput.selectionStart, cardTextInput.selectionEnd - cardTextInput.selectionStart);
+  }
+
+  highlightInBlue() {
+    const selected = this.getHighlightedWord();
+    if (selected.length > 0) {
+      this.blueKeywordSkills.push(selected);
+    }
+    this.parseForKeywords();
+  }
+
+  highlightInRed() {
+    const selected = this.getHighlightedWord();
+    if (selected.length > 0) {
+      this.redKeywordSkills.push(selected);
+    }
+    this.parseForKeywords();
+  }
+
+  highlightInYellow() {
+    const selected = this.getHighlightedWord();
+    if (selected.length > 0) {
+      this.yellowKeywordSkills.push(selected);
+    }
+    this.parseForKeywords();
+  }
+
+  highlightInPink() {
+    const selected = this.getHighlightedWord();
+    if (selected.length > 0) {
+      this.pinkKeywordSkills.push(selected);
+    }
+    this.parseForKeywords();
   }
 
   parseForKeywords() {
     this.skillHighlighted = this.skill;
 
-    if (this.skillHighlighted.indexOf("Auto") > -1) {
-      this.skillHighlighted = this.skillHighlighted.replace(/Auto/g,
-        '<span class="skill-highlight blue-skill">Auto</span>');
-    }
-
-    if (this.skillHighlighted.indexOf("Permanent") > -1) {
-      this.skillHighlighted = this.skillHighlighted.replace(/Permanent/g,
-        '<span class="skill-highlight pink-skill">Permanent</span>');
+    for (let i = 0; i < this.blueKeywordSkills.length; i++) {
+      if (this.skillHighlighted.indexOf(this.blueKeywordSkills[i]) > -1) {
+        const re = new RegExp(this.blueKeywordSkills[i], "g");
+        this.skillHighlighted = this.skillHighlighted.replace(re,
+          '<span class="skill-highlight blue-skill">' + this.blueKeywordSkills[i] + '</span>');
+      }
     }
 
     for (let i = 0; i < this.redKeywordSkills.length; i++) {
@@ -174,6 +206,22 @@ export class AppComponent {
         const re = new RegExp(this.redKeywordSkills[i], "g");
         this.skillHighlighted = this.skillHighlighted.replace(re,
           '<span class="skill-highlight red-skill">' + this.redKeywordSkills[i] + '</span>');
+      }
+    }
+
+    for (let i = 0; i < this.yellowKeywordSkills.length; i++) {
+      if (this.skillHighlighted.indexOf(this.yellowKeywordSkills[i]) > -1) {
+        const re = new RegExp(this.yellowKeywordSkills[i], "g");
+        this.skillHighlighted = this.skillHighlighted.replace(re,
+          '<span class="skill-highlight yellow-skill">' + this.yellowKeywordSkills[i] + '</span>');
+      }
+    }
+
+    for (let i = 0; i < this.pinkKeywordSkills.length; i++) {
+      if (this.skillHighlighted.indexOf(this.pinkKeywordSkills[i]) > -1) {
+        const re = new RegExp(this.pinkKeywordSkills[i], "g");
+        this.skillHighlighted = this.skillHighlighted.replace(re,
+          '<span class="skill-highlight pink-skill">' + this.pinkKeywordSkills[i] + '</span>');
       }
     }
     document.getElementById("skill").innerHTML = this.skillHighlighted;

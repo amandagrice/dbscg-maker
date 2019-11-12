@@ -71,10 +71,10 @@
         <img id="highlight-help" src="../assets/icons/information.svg" alt="explain highlights">
         <button id="auto-highlight" pButton type="button" label="Auto" class="ui-button-rounded"
                 (click)="parseForKeywords()"></button>
-        <button id="blue-highlight-btn"   type="button" class="highlight-btn" (click)="getHighlightedWord()"></button>
-        <button id="red-highlight-btn"    type="button" class="highlight-btn"></button>
-        <button id="yellow-highlight-btn" type="button" class="highlight-btn"></button>
-        <button id="pink-highlight-btn"   type="button" class="highlight-btn"></button>
+        <button id="blue-highlight-btn"   type="button" class="highlight-btn" (click)="highlightInBlue()"></button>
+        <button id="red-highlight-btn"    type="button" class="highlight-btn" (click)="highlightInRed()"></button>
+        <button id="yellow-highlight-btn" type="button" class="highlight-btn" (click)="highlightInYellow()"></button>
+        <button id="pink-highlight-btn"   type="button" class="highlight-btn" (click)="highlightInPink()"></button>
         <img id="clear-highlighting" src="../assets/icons/clearChanges.svg" alt="clear highlights" (click)="removeHighlight()">
         <input
           id="hex-input"
