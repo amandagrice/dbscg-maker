@@ -312,7 +312,7 @@ textarea {
 }
 
 #hex-input {
-  width: 87px;
+  width: 62px;
 }
 
 .skill-highlight {
@@ -331,6 +331,13 @@ textarea {
   margin-right: 5px;
   bottom: 0;
   vertical-align: sub;
+}
+
+#clear-highlighting {
+  width: 25px;
+  bottom: 0;
+  vertical-align: sub;
+  cursor: pointer;
 }
 
 #auto-highlight {
