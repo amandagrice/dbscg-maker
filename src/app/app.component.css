@@ -12,6 +12,7 @@ p {
   font-size: 75px;
   margin: 0;
 }
+
 #subtitle {
   font-size: 50px;
   margin: 0;
@@ -43,6 +44,7 @@ textarea {
   padding-left: 175px;
   min-width: 300px;
 }
+
 @media only screen and (min-width: 1000px) {
   #footer {
     position: fixed;
@@ -70,6 +72,7 @@ textarea {
   p {
     padding: 0;
   }
+
   #main-title {
     display: none;
   }
@@ -361,8 +364,13 @@ textarea {
 }
 
 #pink-highlight-btn {
-background-color: #d52298;
-border-color: #d52298;
+  background-color: #d52298;
+  border-color: #d52298;
+}
+
+#green-highlight-btn {
+  background-color: #0a832d;
+  border-color: #0a832d;
 }
 
 #photo-editor-dialog .ui-dialog-content {
@@ -387,7 +395,7 @@ image-cropper {
   transform: rotate(90deg);
 }
 
-#save-changes:hover  {
+#save-changes:hover {
   box-shadow: 0 0 20px 3px #d4d01d;
 }
 
@@ -409,6 +417,6 @@ image-cropper {
   color: white;
 }
 
-#save-changes:hover  {
+#save-changes:hover {
   box-shadow: 0 0 20px 3px #d4d01d;
 }
