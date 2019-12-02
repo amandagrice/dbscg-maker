@@ -183,7 +183,11 @@ export class AppComponent {
   }
 
   removeHighlight() {
-    document.getElementById("skill").innerHTML = this.skill;
+    if (this.skill) {
+      document.getElementById("skill").innerHTML = this.skill;
+    } else {
+      document.getElementById("skill").innerHTML = '';
+    }
   }
 
   setDrops() {

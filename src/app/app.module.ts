@@ -14,6 +14,7 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { ImageCropperModule } from 'ngx-image-cropper';
 import {DialogModule} from "primeng/dialog";
+import {AccordionModule} from "primeng/accordion";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {DialogModule} from "primeng/dialog";
     InputTextareaModule,
     MatSlideToggleModule,
     ImageCropperModule,
-    DialogModule
+    DialogModule,
+    AccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

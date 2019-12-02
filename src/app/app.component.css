@@ -316,6 +316,7 @@ textarea {
 
 #hex-input {
   width: 62px;
+  margin-right: 5px;
 }
 
 .skill-highlight {
@@ -331,9 +332,10 @@ textarea {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  margin-right: 5px;
+  margin-right: 15px;
   bottom: 0;
   vertical-align: sub;
+  margin-bottom: 5px;
 }
 
 #clear-highlighting {
@@ -371,6 +373,7 @@ textarea {
 #green-highlight-btn {
   background-color: #0a832d;
   border-color: #0a832d;
+  margin-right: 60px;
 }
 
 #photo-editor-dialog .ui-dialog-content {
