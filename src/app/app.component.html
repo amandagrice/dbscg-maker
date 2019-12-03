@@ -69,7 +69,8 @@
 
       <p-accordion [style]="{width: '300px'}">
         <p-accordionTab header="Edit Text Highlighting">
-          <img id="highlight-help" src="../assets/icons/information.svg" alt="explain highlights">
+          <img id="highlight-help" src="../assets/icons/information.svg" alt="explain highlights"
+                  (click)="this.displayHighlightHelp = true">
           <button id="auto-highlight" pButton type="button" label="Auto" class="ui-button-rounded"
                   (click)="highlightKeywords()"></button>
           <br/>
@@ -251,6 +252,17 @@
         [alignImage]="'left'"
       ></image-cropper>
     </div>
+  </div>
+</p-dialog>
+
+<p-dialog [(visible)]="displayHighlightHelp" draggable="true" [modal]="true" header="Help"
+          dismissableMask="true">
+  <div>
+    Use these tools to highlight words in the card text area. (For example, like how Double Strike is generally in red.) <br/>
+    If you want to highlight only standard keywords in the game, you may just hit the "Auto" button.<br/>
+    If you want to highlight your own keyword skills, you may highlight the word in the text area above and then hit one of the colored circular buttons.<br/>
+    If you want to use a custom color, you may enter the hex code in the box, select your word, and hit "Go!".<br/>
+    To clear highlighting, hit the green trash can button.
   </div>
 </p-dialog>
 

@@ -67,6 +67,7 @@ export class AppComponent {
     {name: '0 cost + 0', cost: '/combos/combocost0.png', power: '/combos/supercombo.png'}
   ];
   selectedCombo: Combo;
+  displayHighlightHelp = false;
   skill: string;
   skillHighlighted: string;
   skillHex: string = '#c0ffee';
