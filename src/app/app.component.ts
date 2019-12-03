@@ -10,6 +10,7 @@ interface Combo {
 interface Highlight {
   word: string;
   color: string;
+  standard: boolean;
 }
 
 @Component({
@@ -70,17 +71,17 @@ export class AppComponent {
   skillHighlighted: string;
   skillHex: string = '#c0ffee';
   keywordSkills: Highlight[] = [
-    {word: 'Auto', color: '#00BFFF'},
-    {word: 'Barrier', color: '#ff0a16'},
-    {word: 'Blocker', color: '#ff0a16'},
-    {word: 'Critical', color: '#ff0a16'},
-    {word: 'Double Strike', color: '#ff0a16'},
-    {word: 'Dual Attack', color: '#ff0a16'},
-    {word: 'Once per turn', color: '#ff0a16'},
-    {word: 'Super Combo', color: '#ff0a16'},
-    {word: 'Triple Attack', color: '#ff0a16'},
-    {word: 'Triple Strike', color: '#ff0a16'},
-    {word: 'Permanent', color: '#d52298'},
+    {word: 'Auto', color: '#00BFFF', standard: true},
+    {word: 'Barrier', color: '#ff0a16', standard: true},
+    {word: 'Blocker', color: '#ff0a16', standard: true},
+    {word: 'Critical', color: '#ff0a16', standard: true},
+    {word: 'Double Strike', color: '#ff0a16', standard: true},
+    {word: 'Dual Attack', color: '#ff0a16', standard: true},
+    {word: 'Once per turn', color: '#ff0a16', standard: true},
+    {word: 'Super Combo', color: '#ff0a16', standard: true},
+    {word: 'Triple Attack', color: '#ff0a16', standard: true},
+    {word: 'Triple Strike', color: '#ff0a16', standard: true},
+    {word: 'Permanent', color: '#d52298', standard: true},
   ];
   fontsize: any = {
     'total-cost': 43,
@@ -163,7 +164,8 @@ export class AppComponent {
     if (selectedWord.length > 0) {
       let keyword = {
         word: selectedWord,
-        color: color
+        color: color,
+        standard: false
       };
       this.keywordSkills.push(keyword);
     }
@@ -188,6 +190,15 @@ export class AppComponent {
     } else {
       document.getElementById("skill").innerHTML = '';
     }
+  }
+
+  clearCustomKeywords() {
+    this.keywordSkills = this.keywordSkills.filter(x => x.standard);
+  }
+
+  clearHighlights() {
+    this.clearCustomKeywords();
+    this.removeHighlight();
   }
 
   setDrops() {
