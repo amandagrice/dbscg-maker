@@ -179,39 +179,36 @@ export class AppComponent {
     this.highlightKeywords();
   }
 
+  generateHighlightHTML(word) {
+    return '<span ' +
+      'class="skill-highlight" ' +
+      'style="background-color:' + this.keywordSkills[word] + ';">' +
+      word + '</span>';
+  }
+
   highlightKeywords() {
-    let space = ' ';
     let highlighted = '';
     let words = this.skill.split(/\b/);
     words = words.filter(word => word !== ' ');
     for (let i = 0; i < words.length; i++) {
-      console.log('Word: ' + words[i]);
-      if (this.keywordSkills.hasOwnProperty(words[i])) {
-        let wordHighlighted = '<span class="skill-highlight" style="background-color:' + this.keywordSkills[words[i]] + ';">' + words[i] + '</span>';
-        highlighted += wordHighlighted;
+      if (words[i] === '\n') {
+        highlighted += words[i];
+      } else if (this.keywordSkills.hasOwnProperty(words[i])) {
+        highlighted += this.generateHighlightHTML(words[i]);
+      } else if (this.keywordSkills.hasOwnProperty(words[i] + ' ' + words[i + 1])) {
+        highlighted += this.generateHighlightHTML(words[i] + ' ' + words[i + 1]);
+        i++;
+      } else if (this.keywordSkills.hasOwnProperty(words[i] + ' ' + words[i + 1] + ' ' + words[i + 2])) {
+        highlighted += this.generateHighlightHTML(words[i] + ' ' + words[i + 1] + ' ' + words[i + 2]);
+        i += 2;
       } else {
-        let nextTwo = words[i] + space + words[i + 1];
-        let nextThree = words[i] + space + words[i + 1] + space + words[i + 2];
-        if (this.keywordSkills.hasOwnProperty(nextTwo)) {
-          let wordHighlighted = '<span class="skill-highlight" style="background-color:' + this.keywordSkills[nextTwo] + ';">' + nextTwo + '</span>';
-          highlighted += wordHighlighted;
-          i++;
-        } else if (this.keywordSkills.hasOwnProperty(nextThree)) {
-          let wordHighlighted = '<span class="skill-highlight" style="background-color:' + this.keywordSkills[nextThree] + ';">' + nextThree + '</span>';
-          highlighted += wordHighlighted;
-          i+=2;
-        } else {
-          if (words[i] === '\n') {
-            highlighted += words[i];
-          } else {
-            highlighted += words[i] + space;
-          }
-        }
+        highlighted += words[i] + ' ';
       }
     }
     this.skillHighlighted = highlighted;
     document.getElementById("skill").innerHTML = this.skillHighlighted;
   }
+
 
   removeHighlight() {
     if (this.skill) {
