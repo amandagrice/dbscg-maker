@@ -7,12 +7,6 @@ interface Combo {
   power: string;
 }
 
-interface Highlight {
-  word: string;
-  color: string;
-  standard: boolean;
-}
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -72,17 +66,33 @@ export class AppComponent {
   skillHighlighted: string;
   skillHex: string = '#c0ffee';
   originalKeywordSkills: any = {
+    'Activate:Battle': '#d59e2c',
+    'Activate:Main': '#d59e2c',
+    'Awaken': '#ffff00',
     'Auto': '#00BFFF',
     'Barrier': '#ff0a16',
     'Blocker': '#ff0a16',
+    'Counter:Attack': '#0a832d',
+    'Counter:Play': '#0a832d',
     'Critical': '#ff0a16',
+    'Dark Over Realm': '#ff0a16',
+    'Deflect': '#ff0a16',
     'Double Strike': '#ff0a16',
+    'Dragon Ball': '#ff0a16',
     'Dual Attack': '#ff0a16',
+    'Evolve': '#ff0a16',
+    'Field': '#0a832d',
     'Once per turn': '#ff0a16',
+    'Over Realm': '#ff0a16',
+    'Permanent': '#d52298',
     'Super Combo': '#ff0a16',
+    'Sparking': '#ff0a16',
     'Triple Attack': '#ff0a16',
     'Triple Strike': '#ff0a16',
-    'Permanent': '#d52298'
+    'Union': '#ff0a16',
+    'Union-Absorb': '#ff0a16',
+    'Union-Fusion': '#ff0a16',
+    'Xeno-Evolve': '#ff0a16'
   };
   keywordSkills = Object.assign({}, this.originalKeywordSkills);
   fontsize: any = {
@@ -172,13 +182,31 @@ export class AppComponent {
   highlightKeywords() {
     let space = ' ';
     let highlighted = '';
-    let words = this.skill.split(' ');
+    let words = this.skill.split(/\b/);
+    words = words.filter(word => word !== ' ');
     for (let i = 0; i < words.length; i++) {
+      console.log('Word: ' + words[i]);
       if (this.keywordSkills.hasOwnProperty(words[i])) {
         let wordHighlighted = '<span class="skill-highlight" style="background-color:' + this.keywordSkills[words[i]] + ';">' + words[i] + '</span>';
-        highlighted += wordHighlighted + space;
+        highlighted += wordHighlighted;
       } else {
-        highlighted += words[i] + space;
+        let nextTwo = words[i] + space + words[i + 1];
+        let nextThree = words[i] + space + words[i + 1] + space + words[i + 2];
+        if (this.keywordSkills.hasOwnProperty(nextTwo)) {
+          let wordHighlighted = '<span class="skill-highlight" style="background-color:' + this.keywordSkills[nextTwo] + ';">' + nextTwo + '</span>';
+          highlighted += wordHighlighted;
+          i++;
+        } else if (this.keywordSkills.hasOwnProperty(nextThree)) {
+          let wordHighlighted = '<span class="skill-highlight" style="background-color:' + this.keywordSkills[nextThree] + ';">' + nextThree + '</span>';
+          highlighted += wordHighlighted;
+          i+=2;
+        } else {
+          if (words[i] === '\n') {
+            highlighted += words[i];
+          } else {
+            highlighted += words[i] + space;
+          }
+        }
       }
     }
     this.skillHighlighted = highlighted;
