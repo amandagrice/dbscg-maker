@@ -71,19 +71,20 @@ export class AppComponent {
   skill: string;
   skillHighlighted: string;
   skillHex: string = '#c0ffee';
-  keywordSkills: Highlight[] = [
-    {word: 'Auto', color: '#00BFFF', standard: true},
-    {word: 'Barrier', color: '#ff0a16', standard: true},
-    {word: 'Blocker', color: '#ff0a16', standard: true},
-    {word: 'Critical', color: '#ff0a16', standard: true},
-    {word: 'Double Strike', color: '#ff0a16', standard: true},
-    {word: 'Dual Attack', color: '#ff0a16', standard: true},
-    {word: 'Once per turn', color: '#ff0a16', standard: true},
-    {word: 'Super Combo', color: '#ff0a16', standard: true},
-    {word: 'Triple Attack', color: '#ff0a16', standard: true},
-    {word: 'Triple Strike', color: '#ff0a16', standard: true},
-    {word: 'Permanent', color: '#d52298', standard: true},
-  ];
+  originalKeywordSkills: any = {
+    'Auto': '#00BFFF',
+    'Barrier': '#ff0a16',
+    'Blocker': '#ff0a16',
+    'Critical': '#ff0a16',
+    'Double Strike': '#ff0a16',
+    'Dual Attack': '#ff0a16',
+    'Once per turn': '#ff0a16',
+    'Super Combo': '#ff0a16',
+    'Triple Attack': '#ff0a16',
+    'Triple Strike': '#ff0a16',
+    'Permanent': '#d52298'
+  };
+  keywordSkills = Object.assign({}, this.originalKeywordSkills);
   fontsize: any = {
     'total-cost': 43,
     'card-name': 35,
@@ -163,25 +164,24 @@ export class AppComponent {
   addKeywordToList(color) {
     const selectedWord = this.getHighlightedWord();
     if (selectedWord.length > 0) {
-      let keyword = {
-        word: selectedWord,
-        color: color,
-        standard: false
-      };
-      this.keywordSkills.push(keyword);
+      this.keywordSkills[selectedWord] = color;
     }
     this.highlightKeywords();
   }
 
   highlightKeywords() {
-    this.skillHighlighted = this.skill;
-    for (let i = 0; i < this.keywordSkills.length; i++) {
-      if (this.skillHighlighted.indexOf(this.keywordSkills[i]['word']) > -1) {
-        const re = new RegExp(this.keywordSkills[i]['word'], "g");
-        this.skillHighlighted = this.skillHighlighted.replace(re,
-          '<span class="skill-highlight" style="background-color:' + this.keywordSkills[i]['color'] + ';">' + this.keywordSkills[i]['word'] + '</span>');
+    let space = ' ';
+    let highlighted = '';
+    let words = this.skill.split(' ');
+    for (let i = 0; i < words.length; i++) {
+      if (this.keywordSkills.hasOwnProperty(words[i])) {
+        let wordHighlighted = '<span class="skill-highlight" style="background-color:' + this.keywordSkills[words[i]] + ';">' + words[i] + '</span>';
+        highlighted += wordHighlighted + space;
+      } else {
+        highlighted += words[i] + space;
       }
     }
+    this.skillHighlighted = highlighted;
     document.getElementById("skill").innerHTML = this.skillHighlighted;
   }
 
@@ -194,7 +194,7 @@ export class AppComponent {
   }
 
   clearCustomKeywords() {
-    this.keywordSkills = this.keywordSkills.filter(x => x.standard);
+    this.keywordSkills = Object.assign({}, this.originalKeywordSkills);
   }
 
   clearHighlights() {
