@@ -28,6 +28,7 @@ The app will automatically reload if you change any of the source files.
 - Add brighter yellow skill button (for awaken, etc.)
 - Find a way to auto highlight numbers for skills that have costs (ex. sparking, over realm)
 - On text highlight, if color is too light, switch text color to black
+- Fix bug where card text shows over image editing
 
 
 ## Can I help?
