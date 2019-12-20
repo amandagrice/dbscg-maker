@@ -17,6 +17,7 @@ Navigate to `http://localhost:4200/`.
 The app will automatically reload if you change any of the source files.
 
 ## On my to-do list:
+- add button to save card image
 - update this readme lol
 - make first three digits of power smaller
 - Fix card text font
