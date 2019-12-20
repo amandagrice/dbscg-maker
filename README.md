@@ -25,7 +25,6 @@ The app will automatically reload if you change any of the source files.
 - Add dual colored cards + Arrivals + Aegis
 - Add ability to add cost symbols in card text area
 - Add ability to remove all auto highlighting in case it screws up
-- Add brighter yellow skill button (for awaken, etc.)
 - Find a way to auto highlight numbers for skills that have costs (ex. sparking, over realm)
 - On text highlight, if color is too light, switch text color to black
 - Fix bug where card text shows over image editing
