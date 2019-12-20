@@ -26,7 +26,6 @@ The app will automatically reload if you change any of the source files.
 - Add ability to add cost symbols in card text area
 - Add ability to remove all auto highlighting in case it screws up
 - Find a way to auto highlight numbers for skills that have costs (ex. sparking, over realm)
-- Fix bug where card text shows over image editing
 
 
 ## Can I help?

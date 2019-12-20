@@ -163,7 +163,6 @@ textarea {
 
 .layer-asset {
   position: absolute;
-  z-index: 1000;
   top: 0;
   right: 0;
 }
@@ -295,7 +294,6 @@ textarea {
 #skill {
   font-size: 14px;
   position: absolute;
-  z-index: 9001;
   top: 460px;
   right: 22px;
   width: 408px;
