@@ -201,20 +201,21 @@ export class AppComponent {
   highlightKeywords() {
     let highlighted = '';
     let words = this.skill.split(/\b/);
+    let space = ' ';
     words = words.filter(word => word !== ' ');
     for (let i = 0; i < words.length; i++) {
       if (words[i] === '\n') {
         highlighted += words[i];
       } else if (this.keywordSkills.hasOwnProperty(words[i])) {
-        highlighted += this.generateHighlightHTML(words[i]);
-      } else if (this.keywordSkills.hasOwnProperty(words[i] + ' ' + words[i + 1])) {
-        highlighted += this.generateHighlightHTML(words[i] + ' ' + words[i + 1]);
+        highlighted += this.generateHighlightHTML(words[i]) + space;
+      } else if (this.keywordSkills.hasOwnProperty(words[i] + space + words[i + 1])) {
+        highlighted += this.generateHighlightHTML(words[i] + space + words[i + 1]) + space;
         i++;
-      } else if (this.keywordSkills.hasOwnProperty(words[i] + ' ' + words[i + 1] + ' ' + words[i + 2])) {
-        highlighted += this.generateHighlightHTML(words[i] + ' ' + words[i + 1] + ' ' + words[i + 2]);
+      } else if (this.keywordSkills.hasOwnProperty(words[i] + space + words[i + 1] + space + words[i + 2])) {
+        highlighted += this.generateHighlightHTML(words[i] + ' ' + words[i + 1] + space + words[i + 2]) + space;
         i += 2;
       } else {
-        highlighted += words[i] + ' ';
+        highlighted += words[i] + space;
       }
     }
     this.skillHighlighted = highlighted;
