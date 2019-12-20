@@ -191,11 +191,21 @@ export class AppComponent {
     this.highlightKeywords();
   }
 
+  // referenced: https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
+  chooseTextColor(backgroundColor) {
+    const color = (backgroundColor.charAt(0) === '#') ? backgroundColor.substring(1, 7) : backgroundColor;
+    const r = parseInt(color.substring(0, 2), 16);
+    const g = parseInt(color.substring(2, 4), 16);
+    const b = parseInt(color.substring(4, 6), 16);
+    return (((r * 0.299) + (g * 0.587) + (b * 0.114)) > 186) ?
+      'black' : 'white';
+  }
+
   generateHighlightHTML(word) {
-    return '<span ' +
-      'class="skill-highlight" ' +
-      'style="background-color:' + this.keywordSkills[word] + ';">' +
-      word + '</span>';
+    console.log(this.chooseTextColor(this.keywordSkills[word]));
+    return '<span class="skill-highlight" style="background-color:'
+      + this.keywordSkills[word] + '; color: '
+      + this.chooseTextColor(this.keywordSkills[word]) + '">' + word + '</span>';
   }
 
   highlightKeywords() {
