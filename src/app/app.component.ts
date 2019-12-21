@@ -202,10 +202,23 @@ export class AppComponent {
   }
 
   generateHighlightHTML(word) {
-    console.log(this.chooseTextColor(this.keywordSkills[word]));
     return '<span class="skill-highlight" style="background-color:'
       + this.keywordSkills[word] + '; color: '
       + this.chooseTextColor(this.keywordSkills[word]) + '">' + word + '</span>';
+  }
+
+  addSkillTextCost(color, cost) {
+    let costs = '';
+    let i = 0;
+    while (i < cost) {
+      costs += '<img alt="cost" class="color-cost" src=' + this.assets + this.colorResources[color]['drop'] + '/>';
+      i++;
+    }
+    return costs;
+  }
+
+  addColorlessSkillCost(cost) {
+    return '<span class="skill-less-cost">' + cost + '</span>';
   }
 
   highlightKeywords() {

@@ -425,3 +425,20 @@ image-cropper {
 #save-changes:hover {
   box-shadow: 0 0 20px 3px #d4d01d;
 }
+
+.skill-less-cost {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+  font-size: 10px;
+  text-align: center;
+  background-color: white;
+  line-height: 14px;
+}
+
+.color-cost {
+  height: 15px;
+  width: auto;
+}
