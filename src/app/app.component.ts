@@ -1,5 +1,6 @@
-import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ImageCroppedEvent, ImageCropperComponent} from "ngx-image-cropper";
+import * as html2canvas from 'html2canvas';
 
 interface Combo {
   name: string;
@@ -319,6 +320,24 @@ export class AppComponent {
 
   openFooter() {
     this.displayFooter = true;
+  }
+
+  downloadImage() {
+    // @ts-ignore
+    html2canvas(document.querySelector("#card")).then(canvas => {
+      canvas.toBlob(function (blob) {
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = function () {
+          const link = document.createElement("a"); // Or maybe get it from the current document
+          link.href = reader.result.toString();
+          link.download = "shenwrong.png";
+          link.innerHTML = "Click here to download your card";
+          document.getElementById('download-link').innerHTML = '';
+          document.getElementById('download-link').appendChild(link);
+        }
+      });
+    });
   }
 
 }

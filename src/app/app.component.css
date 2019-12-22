@@ -442,3 +442,11 @@ image-cropper {
   height: 15px;
   width: auto;
 }
+
+#download {
+  margin-top: 10px;
+}
+
+#download-btn {
+  margin-right: 10px;
+}

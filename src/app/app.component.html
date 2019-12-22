@@ -216,6 +216,10 @@
       <img *ngIf="selectedCombo" class="layer-asset" [src]="assets + selectedCombo['power']" alt="combo power">
       <div id="watermark">shenwrong.com</div>
     </div>
+    <div id="download">
+      <p-button id="download-btn" label="Save Card" (click)="downloadImage()"></p-button>
+      <span id="download-link"></span>
+    </div>
   </div>
 
 </div>
