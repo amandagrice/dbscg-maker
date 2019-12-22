@@ -189,7 +189,7 @@ export class AppComponent {
     if (selectedWord.length > 0) {
       this.keywordSkills[selectedWord] = color;
     }
-    this.highlightKeywords();
+    this.formatCardText();
   }
 
   // referenced: https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
@@ -208,6 +208,25 @@ export class AppComponent {
       + this.chooseTextColor(this.keywordSkills[word]) + '">' + word + '</span>';
   }
 
+  findCost(costString) {
+    let color = costString.charAt(0);
+    let cost = Number(costString.substr(1, costString.length - 1));
+    switch (color) {
+      case 'R':
+        return this.addSkillTextCost('red', cost);
+      case 'B':
+        return this.addSkillTextCost('blue', cost);
+      case 'Y':
+        return this.addSkillTextCost('yellow', cost);
+      case 'G':
+        return this.addSkillTextCost('green', cost);
+      case 'N':
+        return this.addColorlessSkillCost(cost);
+      default:
+        return '';
+    }
+  }
+
   addSkillTextCost(color, cost) {
     let costs = '';
     let i = 0;
@@ -222,7 +241,7 @@ export class AppComponent {
     return '<span class="skill-less-cost">' + cost + '</span>';
   }
 
-  highlightKeywords() {
+  formatCardText() {
     let highlighted = '';
     let words = this.skill.split(/\b/);
     let space = ' ';
@@ -230,6 +249,9 @@ export class AppComponent {
     for (let i = 0; i < words.length; i++) {
       if (words[i] === '\n') {
         highlighted += words[i];
+      } else if (words[i].includes("$$$")) {
+        highlighted += this.findCost(words[i+1]);
+        i++;
       } else if (this.keywordSkills.hasOwnProperty(words[i])) {
         highlighted += this.generateHighlightHTML(words[i]) + space;
       } else if (this.keywordSkills.hasOwnProperty(words[i] + space + words[i + 1])) {
