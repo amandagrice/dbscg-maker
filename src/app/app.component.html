@@ -264,11 +264,22 @@
 <p-dialog [(visible)]="displayHighlightHelp" draggable="true" [modal]="true" header="Help"
           dismissableMask="true">
   <div>
-    Use these tools to highlight words in the card text area. (For example, like how Double Strike is generally in red.) <br/>
-    If you want to highlight only standard keywords in the game, you may just hit the "Auto" button.<br/>
-    If you want to highlight your own keyword skills, you may highlight the word in the text area above and then hit one of the colored circular buttons.<br/>
-    If you want to use a custom color, you may enter the hex code in the box, select your word, and hit "Go!".<br/>
-    To clear highlighting, hit the green trash can button.
+    <h4>Highlighting</h4>
+    <li>You can use these tools to highlight keywords. For example, the way <span class="skill-highlight" style="background-color: red; color: white;">Double Strike</span> is shown in red or <span class="skill-highlight" style="background-color: #00BFFF; color: white;">Auto</span> is shown in blue.</li>
+    <li>If you want to highlight only standard keywords in the game, you may just hit the "Auto" button.</li>
+    <li>If you want to highlight your own custom keyword skills, you may highlight the word in the input area and then hit one of the colored circular buttons.</li>
+    <li>If you want to use a custom color, you may enter the hex code in the box, select your word, and hit "Go!".</li>
+    <li>To clear highlighting, hit the green trash can button.</li>
+    <h4>Costs</h4>
+    <li>You may also add costs to the skill area by typing $$$ followed by the first letter of the color (use N for color-less), and then the cost.</li>
+    <li>Examples:</li>
+    <ul>
+      <li>$$$G1 results in <img alt="cost" class="color-cost" [src]="this.assets + this.colorResources['green']['drop']" /></li>
+      <li>$$$Y2 results in <img alt="cost" class="color-cost" [src]="this.assets + this.colorResources['yellow']['drop']" /><img alt="cost" class="color-cost" [src]="this.assets + this.colorResources['yellow']['drop']" /></li>
+      <li>$$$B1 results in <img alt="cost" class="color-cost" [src]="this.assets + this.colorResources['blue']['drop']" /></li>
+      <li>$$$R3 results in <img alt="cost" class="color-cost" [src]="this.assets + this.colorResources['red']['drop']" /><img alt="cost" class="color-cost" [src]="this.assets + this.colorResources['red']['drop']" /><img alt="cost" class="color-cost" [src]="this.assets + this.colorResources['red']['drop']" /></li>
+      <li>$$$N4 results in <span class="skill-less-cost">4</span></li>
+    </ul>
   </div>
 </p-dialog>
 
