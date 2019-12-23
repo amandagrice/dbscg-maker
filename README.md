@@ -17,14 +17,12 @@ Navigate to `http://localhost:4200/`.
 The app will automatically reload if you change any of the source files.
 
 ## On my to-do list:
-- add button to save card image
 - update this readme lol
 - make first three digits of power smaller
 - Fix card text font
 - Add ability to create leaders
 - Add ability to create extra cards
 - Add dual colored cards + Arrivals + Aegis
-- Add ability to add cost symbols in card text area
 - Add ability to remove all auto highlighting in case it screws up
 - Find a way to auto highlight numbers for skills that have costs (ex. sparking, over realm)
 
