@@ -14,6 +14,8 @@ You can see the live site at [shenwrong.com](http:shenwrong.com/).
 
 The name is supposed to be a pun on the dragon Shenlong and "wrong" because the cards are fake. Idk, I'm not very funny. 
 
+<img src="./images/shenlong.jpg" width="250">
+
 ## Screenshot 
 
 Here's a screenshot of the site being used to turn a classic Yu-Gi-Oh Egyptian God into a broken Dragon Ball card. 
