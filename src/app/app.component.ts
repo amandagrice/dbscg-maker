@@ -231,14 +231,14 @@ export class AppComponent {
     let costs = '';
     let i = 0;
     while (i < cost) {
-      costs += '<img alt="cost" class="color-cost" src=' + this.assets + this.colorResources[color]['drop'] + '/>';
+      costs += '<span class="cost" style="background-color:' + color + '"> </span>';
       i++;
     }
     return costs;
   }
 
   addColorlessSkillCost(cost) {
-    return '<span class="skill-less-cost">' + cost + '</span>';
+    return '<span class="cost">' + cost + '</span>';
   }
 
   formatCardText() {
