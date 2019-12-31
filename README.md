@@ -42,7 +42,7 @@ The app will automatically reload if you change any of the source files.
 
 ## Current Features:
 
-- Can create battle cards of any single color (black, blue, gree, red, yellow).
+- Can create battle cards of any single color (black, blue, green, red, yellow).
 - Can set the total cost and specified cost (except for black cards) to any number.
 - Can set the combo power to 0, 5000, or 10000 and make it cost 0 or 1 to combo.
 - Can set the card art to any image saved to your computer. Accepts most image formats.
