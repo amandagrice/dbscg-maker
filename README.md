@@ -1,12 +1,20 @@
 # Dragon Ball Super Card Game Maker
 
-I play the Dragon Ball Super Card Game TCG with some friends. We enjoyed making our own silly cards but it was a pain to make them in Paint, so I decided to make something specialized. With this website you can easily create your own Dragon Ball TCG cards.
-
-I am completely unafiliated with Akira Toriyama, DragonBall, Bandai, etc. etc. Please do not try to use this software to make counterfeit cards to trade to kids. First, that's cruel. Second, I do not have the fonts anywhere close to accurate enough. Just don't. This is meant to be for fun only.  
+![](./images/goku.jpg)
 
 ## Site
 
 You can see the live site [here](http:shenwrong.com/).
+
+## Description
+
+I play the Dragon Ball Super Card Game TCG with some friends. We enjoyed making our own silly cards but it was a pain to make them in Paint, so I decided to make something specialized. With this website you can easily create your own Dragon Ball TCG cards.
+
+I am completely unafiliated with Akira Toriyama, DragonBall, Bandai, etc. etc. Please do not try to use this software to make counterfeit cards to trade to kids. First, that's cruel. Second, I do not have the fonts anywhere close to accurate enough. Just don't. This is meant to be for fun only.  
+
+Here's a screenshot of the site being used to turn a classic Yu-Gi-Oh Egyptian God into a broken Dragon Ball card. 
+![](./images/screenshot.PNG)
+
 
 ## Local Development
 
