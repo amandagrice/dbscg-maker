@@ -12,7 +12,7 @@ I am completely unafiliated with Akira Toriyama, DragonBall, Bandai, etc. etc. P
 
 You can see the live site at [shenwrong.com](http:shenwrong.com/).
 
-The name is supposed to be a pun on the dragon Shenlong and "wrong" because the cards are fake. Idk, I'm not very funny. 
+The name is supposed to be a pun on the dragon [Shenron](https://dragonball.fandom.com/wiki/Shenron) and "wrong" because the cards are fake. Idk, I'm not very funny. 
 
 <img src="./images/shenlong.jpg" width="250">
 
@@ -40,6 +40,19 @@ Then navigate to `http://localhost:4200/`.
 
 The app will automatically reload if you change any of the source files.
 
+## Current Features:
+
+- Can create battle cards of any single color (black, blue, gree, red, yellow).
+- Can set the total cost and specified cost (except for black cards) to any number.
+- Can set the combo power to 0, 5000, or 10000 and make it cost 0 or 1 to combo.
+- Can set the card art to any image saved to your computer. Accepts most image formats.
+- Can set the battle power to any number. 
+- Can set the card text to any text. 
+- Can add costs into the card text. 
+- Can highlight keyword skills in the card text. The website can automatically find keywords to highlight, or you can set them yourself. 
+- Can set the character, special trait, and era of the card. 
+- Can download the image. 
+
 ## To-Do List:
 
 ### Major Features:
@@ -53,7 +66,6 @@ The app will automatically reload if you change any of the source files.
 - Add ability to remove all auto-highlighting in case it screws up.
 - Find a way to auto highlight numbers for skills that have costs in the name. (ex. sparking, over realm)
 - Add ability to add costs to card text from the UI instead of typing codes. 
-
 
 ## Can I help?
 
