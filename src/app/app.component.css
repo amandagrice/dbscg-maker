@@ -140,8 +140,8 @@ textarea {
   border-color: #a4090c;
 }
 
-#show-card-box-input, textarea {
-  margin-bottom: 10px;
+#show-card-box-input {
+  padding-right: 67px;
 }
 
 /* Card Display CSS: ----------------------------------------------------------------------------------------- */
@@ -333,6 +333,7 @@ textarea {
   bottom: 0;
   vertical-align: sub;
   margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 #clear-highlighting {
@@ -343,8 +344,9 @@ textarea {
 }
 
 #auto-highlight {
-  margin-right: 5px;
+  margin-top: 10px;
   vertical-align: bottom;
+  margin-right: 60px;
 }
 
 #blue-highlight-btn {
@@ -375,7 +377,6 @@ textarea {
 #green-highlight-btn {
   background-color: #0a832d;
   border-color: #0a832d;
-  margin-right: 45px;
 }
 
 #photo-editor-dialog .ui-dialog-content {

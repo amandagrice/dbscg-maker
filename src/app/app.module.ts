@@ -15,27 +15,29 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { ImageCropperModule } from 'ngx-image-cropper';
 import {DialogModule} from "primeng/dialog";
 import {AccordionModule} from "primeng/accordion";
+import {ColorPickerModule} from "primeng/colorpicker";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ButtonModule,
-    BrowserAnimationsModule,
-    InputTextModule,
-    FormsModule,
-    FileUploadModule,
-    InputSwitchModule,
-    DropdownModule,
-    InputTextareaModule,
-    MatSlideToggleModule,
-    ImageCropperModule,
-    DialogModule,
-    AccordionModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ButtonModule,
+        BrowserAnimationsModule,
+        InputTextModule,
+        FormsModule,
+        FileUploadModule,
+        InputSwitchModule,
+        DropdownModule,
+        InputTextareaModule,
+        MatSlideToggleModule,
+        ImageCropperModule,
+        DialogModule,
+        AccordionModule,
+        ColorPickerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

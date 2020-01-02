@@ -65,14 +65,12 @@
 
       <p-accordion [style]="{width: '300px'}">
         <p-accordionTab header="Edit Card Text">
-          <div id="show-card-box-input">
+          <span id="show-card-box-input">
             <label for="show-card-box-switch">Show Card Text Box:</label>
             <p-inputSwitch id="show-card-box-switch" [(ngModel)]="showCardTextBox"></p-inputSwitch>
-          </div>
+          </span>
           <img id="highlight-help" src="../assets/icons/information.svg" alt="explain highlights"
                   (click)="this.displayHighlightHelp = true">
-          <button id="auto-highlight" pButton type="button" label="Auto" class="ui-button-rounded"
-                  (click)="formatCardText()"></button>
           <br/>
           <button id="blue-highlight-btn" type="button" class="highlight-btn"
                   (click)="addKeywordToList('#00BFFF')"></button>
@@ -86,18 +84,14 @@
                   (click)="addKeywordToList('#ffff00')"></button>
           <button id="green-highlight-btn" type="button" class="highlight-btn"
                   (click)="addKeywordToList('#0a832d')"></button>
+          <br/>
+          <span>Custom Color: <p-colorPicker [(ngModel)]="skillHex" (ngModelChange)="addKeywordToList(skillHex)"></p-colorPicker></span>
+          <br />
+          <button id="auto-highlight" pButton type="button" label="Auto Highlight Keywords" class="ui-button-rounded"
+                  (click)="formatCardText()"></button>
           <img id="clear-highlighting" src="../assets/icons/clearChanges.svg" alt="clear highlights"
                (click)="clearHighlights()">
           <br/>
-          <input
-            id="hex-input"
-            [(ngModel)]="skillHex"
-            placeholder="#c0ffee"
-            size="30"
-            pInputText
-          >
-          <button pButton type="button" label="Go!" class="ui-button-rounded" [disabled]="!skillHex"
-                  (click)="addKeywordToList(skillHex)"></button>
         </p-accordionTab>
       </p-accordion>
 

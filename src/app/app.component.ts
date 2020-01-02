@@ -1,6 +1,7 @@
-import {Component, ElementRef, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ImageCroppedEvent, ImageCropperComponent} from "ngx-image-cropper";
 import * as html2canvas from 'html2canvas';
+import {ColorPickerModule} from 'primeng/colorpicker';
 
 interface Combo {
   name: string;
