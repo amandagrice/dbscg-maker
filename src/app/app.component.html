@@ -49,10 +49,6 @@
     <br/>
 
     <div class="large-bottom-margin">
-      <div id="show-card-box-input">
-        <label for="show-card-box-switch">Show Card Text Box:</label>
-        <p-inputSwitch id="show-card-box-switch" [(ngModel)]="showCardTextBox"></p-inputSwitch>
-      </div>
       <span class="ui-float-label">
       <label for="card-text-input"></label>
         <textarea
@@ -68,7 +64,11 @@
     </span>
 
       <p-accordion [style]="{width: '300px'}">
-        <p-accordionTab header="Edit Text Highlighting">
+        <p-accordionTab header="Edit Card Text">
+          <div id="show-card-box-input">
+            <label for="show-card-box-switch">Show Card Text Box:</label>
+            <p-inputSwitch id="show-card-box-switch" [(ngModel)]="showCardTextBox"></p-inputSwitch>
+          </div>
           <img id="highlight-help" src="../assets/icons/information.svg" alt="explain highlights"
                   (click)="this.displayHighlightHelp = true">
           <button id="auto-highlight" pButton type="button" label="Auto" class="ui-button-rounded"
