@@ -446,3 +446,19 @@ image-cropper {
 #download-btn {
   margin-right: 10px;
 }
+
+#text-cost-adder {
+  margin-top: 10px;
+}
+
+#text-cost-amount {
+  margin-left: 5px;
+  height: 30px;
+  width: 45px;
+  vertical-align: bottom;
+}
+
+#add-text-cost-btn {
+  margin-left: 5px;
+  vertical-align: bottom;
+}

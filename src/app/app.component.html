@@ -70,7 +70,7 @@
             <p-inputSwitch id="show-card-box-switch" [(ngModel)]="showCardTextBox"></p-inputSwitch>
           </span>
           <img id="highlight-help" src="../assets/icons/information.svg" alt="explain highlights"
-                  (click)="this.displayHighlightHelp = true">
+               (click)="this.displayHighlightHelp = true">
           <br/>
           <button id="blue-highlight-btn" type="button" class="highlight-btn"
                   (click)="addKeywordToList('#00BFFF')"></button>
@@ -85,13 +85,30 @@
           <button id="green-highlight-btn" type="button" class="highlight-btn"
                   (click)="addKeywordToList('#0a832d')"></button>
           <br/>
-          <span>Custom Color: <p-colorPicker [(ngModel)]="skillHex" (ngModelChange)="addKeywordToList(skillHex)"></p-colorPicker></span>
-          <br />
+          <span>Custom Color: <p-colorPicker [(ngModel)]="skillHex"
+                                             (ngModelChange)="addKeywordToList(skillHex)"></p-colorPicker></span>
+          <br/>
           <button id="auto-highlight" pButton type="button" label="Auto Highlight Keywords" class="ui-button-rounded"
                   (click)="formatCardText()"></button>
           <img id="clear-highlighting" src="../assets/icons/clearChanges.svg" alt="clear highlights"
                (click)="clearHighlights()">
           <br/>
+          <div id="text-cost-adder">
+            <p-dropdown
+              [options]="colorOptions"
+              [(ngModel)]="textCostColor"
+              optionLabel="name"
+              placeholder="Cost Color"
+              autoWidth="true">
+            </p-dropdown>
+            <input
+              [(ngModel)]="textCostAmount"
+              id="text-cost-amount"
+              type="number"
+              pInputText>
+            <button id="add-text-cost-btn" pButton type="button" label="+" class="ui-button-rounded"
+            (click)="addCostToTextFromUI()"></button>
+          </div>
         </p-accordionTab>
       </p-accordion>
 
@@ -259,19 +276,33 @@
           dismissableMask="true">
   <div>
     <h4>Highlighting</h4>
-    <li>You can use these tools to highlight keywords. For example, the way <span class="skill-highlight" style="background-color: red; color: white;">Double Strike</span> is shown in red or <span class="skill-highlight" style="background-color: #00BFFF; color: white;">Auto</span> is shown in blue.</li>
-    <li>If you want to highlight only standard keywords in the game, you may just hit the "Auto Highlight Keywords" button.</li>
-    <li>If you want to highlight your own custom keyword skills, you may highlight the word in the input area and then hit one of the colored circular buttons.</li>
+    <li>You can use these tools to highlight keywords. For example, the way <span class="skill-highlight"
+                                                                                  style="background-color: red; color: white;">Double Strike</span>
+      is shown in red or <span class="skill-highlight" style="background-color: #00BFFF; color: white;">Auto</span> is
+      shown in blue.
+    </li>
+    <li>If you want to highlight only standard keywords in the game, you may just hit the "Auto Highlight Keywords"
+      button.
+    </li>
+    <li>If you want to highlight your own custom keyword skills, you may highlight the word in the input area and then
+      hit one of the colored circular buttons.
+    </li>
     <li>If you want to use a custom color, you may select a color using the custom color picker.</li>
     <li>To clear highlighting, hit the green trash can button.</li>
     <h4>Costs</h4>
-    <li>You may also add costs to the skill area by typing $$$ followed by the first letter of the color (use N for color-less), and then the cost.</li>
+    <li>You may also add costs to the skill area by typing $$$ followed by the first letter of the color (use N for
+      color-less), and then the cost.
+    </li>
     <li>Examples:</li>
     <ul>
       <li>$$$G1 results in <span class="cost" style="background-color: green"></span></li>
-      <li>$$$Y2 results in <span class="cost" style="background-color: yellow"></span><span class="cost" style="background-color: yellow"></span></li>
+      <li>$$$Y2 results in <span class="cost" style="background-color: yellow"></span><span class="cost"
+                                                                                            style="background-color: yellow"></span>
+      </li>
       <li>$$$B1 results in <span class="cost" style="background-color: blue"></span></li>
-      <li>$$$R3 results in <span class="cost" style="background-color: red"></span><span class="cost" style="background-color: red"></span><span class="cost" style="background-color: red"></span></li>
+      <li>$$$R3 results in <span class="cost" style="background-color: red"></span><span class="cost"
+                                                                                         style="background-color: red"></span><span
+        class="cost" style="background-color: red"></span></li>
       <li>$$$N4 results in <span class="cost">4</span></li>
     </ul>
   </div>

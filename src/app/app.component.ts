@@ -1,7 +1,6 @@
 import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ImageCroppedEvent, ImageCropperComponent} from "ngx-image-cropper";
 import * as html2canvas from 'html2canvas';
-import {ColorPickerModule} from 'primeng/colorpicker';
 
 interface Combo {
   name: string;
@@ -19,6 +18,15 @@ export class AppComponent {
   assets: string = '../assets/layers';
   cardColor: string = 'black';
   selectedFrameResource: string = "../assets/layers/black/template.png";
+  colorOptions: any[] = [
+    {name: 'Neutral'},
+    {name: 'Blue'},
+    {name: 'Green'},
+    {name: 'Red'},
+    {name: 'Yellow'}
+    ];
+  textCostColor: string = 'Neutral';
+  textCostAmount = 0;
   colorResources: any = {
     'black': {
       'template': '/black/template.png',
@@ -64,7 +72,7 @@ export class AppComponent {
   ];
   selectedCombo: Combo;
   displayHighlightHelp = false;
-  skill: string;
+  skill: string = '';
   skillHighlighted: string;
   skillHex: string = '#c0ffee';
   originalKeywordSkills: any = {
@@ -361,6 +369,13 @@ export class AppComponent {
         }
       });
     });
+  }
+
+  addCostToTextFromUI() {
+    if (this.textCostColor && this.textCostAmount > 0) {
+      this.skill += ' $$$' + this.textCostColor['name'][0] + this.textCostAmount;
+    }
+    this.formatCardText();
   }
 
 }
