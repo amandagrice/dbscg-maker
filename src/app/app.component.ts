@@ -255,6 +255,7 @@ export class AppComponent {
     let words = this.skill.split(/\b/);
     let space = ' ';
     words = words.filter(word => word !== ' ');
+    words = words.map(word => word.replace(/ +?/g, ''));
     for (let i = 0; i < words.length; i++) {
       if (words[i] === '\n') {
         highlighted += words[i];
@@ -270,7 +271,11 @@ export class AppComponent {
         highlighted += this.generateHighlightHTML(words[i] + ' ' + words[i + 1] + space + words[i + 2]) + space;
         i += 2;
       } else {
-        highlighted += words[i] + space;
+        if ( words[i+1] && !(words[i+1]).match(/^[a-z0-9]+$/i)) {
+          highlighted += words[i];
+        } else {
+          highlighted += words[i] + space;
+        }
       }
     }
     this.skillHighlighted = highlighted;
@@ -360,7 +365,7 @@ export class AppComponent {
         const reader = new FileReader();
         reader.readAsDataURL(blob);
         reader.onloadend = function () {
-          const link = document.createElement("a"); // Or maybe get it from the current document
+          const link = document.createElement("a");
           link.href = reader.result.toString();
           link.download = "shenwrong.png";
           link.innerHTML = "Click here to download your card";

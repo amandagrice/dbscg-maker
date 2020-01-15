@@ -65,7 +65,7 @@ The app will automatically reload if you change any of the source files.
 - Fix card text font to match real cards better.
 - Add ability to remove all auto-highlighting in case it screws up.
 - Find a way to auto highlight numbers for skills that have costs in the name. (ex. sparking, over realm)
-- Fix auto-highlighting recognizing punctuation as words and spacing it funny.
+- Make cost adding handle newlines.
 
 ## Can I help?
 
