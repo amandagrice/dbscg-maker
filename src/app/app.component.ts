@@ -250,6 +250,7 @@ export class AppComponent {
     return '<span class="cost">' + cost + '</span>';
   }
 
+  // damn this needs to be fixed
   formatCardText() {
     let highlighted = '';
     let words = this.skill.split(/\b/);
@@ -260,7 +261,13 @@ export class AppComponent {
       if (words[i] === '\n') {
         highlighted += words[i];
       } else if (words[i].includes("$$$")) {
+        if (words[i].startsWith("\n")) {
+          highlighted += "\n";
+        }
         highlighted += this.findCost(words[i+1]);
+        if (words[i].endsWith("\n")) {
+          highlighted += "\n";
+        }
         i++;
       } else if (this.keywordSkills.hasOwnProperty(words[i])) {
         highlighted += this.generateHighlightHTML(words[i]) + space;
