@@ -69,6 +69,10 @@ The app will automatically reload if you change any of the source files.
 - Add ability to resize text if it goes out of skill area.
 - Make skill area resizable.
 
+## Acknowledgements
+- Card resources were taken from [/r/DBS_CardGame](https://www.reddit.com/r/DBS_CardGame/comments/96ok5e/createacard_contest_battle_card_edition/).
+- Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from www.flaticon.com
+
 ## Can I help?
 
 Sure! Shoot me an email. algrice@bu.edu :)
