@@ -66,6 +66,8 @@ The app will automatically reload if you change any of the source files.
 - Add ability to remove all auto-highlighting in case it screws up.
 - Find a way to auto highlight numbers for skills that have costs in the name. (ex. sparking, over realm)
 - Add dark mode
+- Add ability to resize text if it goes out of skill area.
+- Make skill area resizable.
 
 ## Can I help?
 
