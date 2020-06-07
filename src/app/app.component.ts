@@ -1,4 +1,4 @@
-import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ImageCroppedEvent, ImageCropperComponent} from "ngx-image-cropper";
 import * as html2canvas from 'html2canvas';
 
@@ -15,6 +15,9 @@ interface Combo {
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
+  @ViewChild('screen', {static: false}) screen: ElementRef;
+  @ViewChild('canvas', {static: false}) canvas: ElementRef;
+  @ViewChild('downloadLink', {static: false}) downloadLink: ElementRef;
   assets: string = '../assets/layers';
   cardColor: string = 'black';
   selectedFrameResource: string = "../assets/layers/black/template.png";
@@ -368,18 +371,9 @@ export class AppComponent {
   downloadImage() {
     // @ts-ignore
     html2canvas(document.querySelector("#card")).then(canvas => {
-      canvas.toBlob(function (blob) {
-        const reader = new FileReader();
-        reader.readAsDataURL(blob);
-        reader.onloadend = function () {
-          const link = document.createElement("a");
-          link.href = reader.result.toString();
-          link.download = "shenwrong.png";
-          link.innerHTML = "Click here to download your card";
-          document.getElementById('download-link').innerHTML = '';
-          document.getElementById('download-link').appendChild(link);
-        }
-      });
+      this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
+      this.downloadLink.nativeElement.download = 'shenwrong.png';
+      this.downloadLink.nativeElement.click();
     });
   }
 
