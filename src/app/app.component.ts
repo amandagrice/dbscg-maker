@@ -22,11 +22,17 @@ export class AppComponent {
   cardColor: string = 'black';
   selectedFrameResource: string = "../assets/layers/black/template.png";
   frameColorOptions: any[] = [
-    {name: 'Black', value: 'black', backgroundColor: 'black', fontColor: 'white'},
-    {name: 'Blue', value: 'blue', backgroundColor: '#3d86d4', fontColor: 'white'},
-    {name: 'Green', value: 'green', backgroundColor: '#32a852', fontColor: 'white'},
-    {name: 'Red', value: 'red', backgroundColor: '#d9364c', fontColor: 'white'},
-    {name: 'Yellow', value: 'yellow', backgroundColor: '#e8e068', fontColor: 'black'}
+    {name: 'Black', value: 'black', backgroundColor: 'black', fontColor: 'white', secondColor: 'black'},
+    {name: 'Blue', value: 'blue', backgroundColor: '#3d86d4', fontColor: 'white', secondColor: '#3d86d4'},
+    {name: 'Green', value: 'green', backgroundColor: '#32a852', fontColor: 'white', secondColor: '#32a852'},
+    {name: 'Red', value: 'red', backgroundColor: '#d9364c', fontColor: 'white', secondColor: '#d9364c'},
+    {name: 'Yellow', value: 'yellow', backgroundColor: '#e8e068', fontColor: 'black', secondColor: '#e8e068'},
+    {name: 'Blue-Green', value: 'blueGreen', backgroundColor: '#3d86d4', fontColor: 'white', secondColor: '#32a852'},
+    {name: 'Blue-Yellow', value: 'blueYellow', backgroundColor: '#3d86d4', fontColor: 'white', secondColor: '#e8e068'},
+    {name: 'Green-Yellow', value: 'greenYellow', backgroundColor: '#32a852', fontColor: 'white', secondColor: '#e8e068'},
+    {name: 'Red-Blue', value: 'redBlue', backgroundColor: '#d9364c', fontColor: 'white', secondColor: '#3d86d4'},
+    {name: 'Red-Green', value: 'redGreen', backgroundColor: '#d9364c', fontColor: 'white', secondColor: '#32a852'},
+    {name: 'Red-Yellow', value: 'redYellow', backgroundColor: '#d9364c', fontColor: 'white', secondColor: '#e8e068'}
   ];
   frameColor: any = this.frameColorOptions[0];
   costColorOptions: any[] = [
@@ -63,6 +69,36 @@ export class AppComponent {
       'template': '/yellow/template.png',
       'box': '/yellow/box.png',
       'drop': '/yellow/drop.png'
+    },
+    'blueGreen': {
+      'template': '/blueGreen/template.png',
+      'box': '/black/box.png',
+      'drop': '/blue/drop.png'
+    },
+    'blueYellow': {
+      'template': '/blueYellow/template.png',
+      'box': '/black/box.png',
+      'drop': '/blue/drop.png'
+    },
+    'greenYellow': {
+      'template': '/greenYellow/template.png',
+      'box': '/black/box.png',
+      'drop': '/green/drop.png'
+    },
+    'redBlue': {
+      'template': '/redBlue/template.png',
+      'box': '/black/box.png',
+      'drop': '/red/drop.png'
+    },
+    'redGreen': {
+      'template': '/redGreen/template.png',
+      'box': '/black/box.png',
+      'drop': '/red/drop.png'
+    },
+    'redYellow': {
+      'template': '/redYellow/template.png',
+      'box': '/black/box.png',
+      'drop': '/red/drop.png'
     }
   };
   cardName: string;

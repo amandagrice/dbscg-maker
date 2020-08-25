@@ -7,10 +7,10 @@
     <div class="large-bottom-margin">
       <label for="frameColorDropdown"></label>
       <select id="frameColorDropdown" #target (change)="setFrameColor($event, target)"
-              [ngStyle]="{'background-color':frameColor.backgroundColor, 'color':frameColor.fontColor}">
+              [ngStyle]="{'background-color':frameColor.backgroundColor, 'color':frameColor.fontColor, 'border-right': '140px solid ' + frameColor.secondColor}">
         <option
           *ngFor="let op of frameColorOptions; let i = index"
-          [ngStyle]="{'background-color': op.backgroundColor, 'color': op.fontColor}"
+          style="background-color: white; color: black"
           value="{{i}}"
         >
           {{op.name}}
