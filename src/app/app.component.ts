@@ -21,7 +21,15 @@ export class AppComponent {
   assets: string = '../assets/layers';
   cardColor: string = 'black';
   selectedFrameResource: string = "../assets/layers/black/template.png";
-  colorOptions: any[] = [
+  frameColorOptions: any[] = [
+    {name: 'Black', value: 'black', backgroundColor: 'black', fontColor: 'white'},
+    {name: 'Blue', value: 'blue', backgroundColor: '#3d86d4', fontColor: 'white'},
+    {name: 'Green', value: 'green', backgroundColor: '#32a852', fontColor: 'white'},
+    {name: 'Red', value: 'red', backgroundColor: '#d9364c', fontColor: 'white'},
+    {name: 'Yellow', value: 'yellow', backgroundColor: '#e8e068', fontColor: 'black'}
+  ];
+  frameColor: any = this.frameColorOptions[0];
+  costColorOptions: any[] = [
     {name: 'Neutral'},
     {name: 'Blue'},
     {name: 'Green'},
@@ -174,7 +182,9 @@ export class AppComponent {
     this.cardArt = this.croppedImage;
   }
 
-  setFrameColor(color) {
+  setFrameColor(event, target) {
+    this.frameColor = this.frameColorOptions[target.value];
+    let color = this.frameColorOptions[target.value].value;
     this.cardColor = color;
     this.selectedFrameResource = this.assets + this.colorResources[color]['template'];
     this.setDrops();

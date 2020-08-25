@@ -8,6 +8,10 @@ p {
   padding-left: 150px;
 }
 
+#form-content div {
+  margin-right: 10px;
+}
+
 #main-title {
   font-size: 75px;
   margin: 0;
@@ -98,46 +102,19 @@ textarea {
   float: left;
 }
 
-.color-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 25px;
-}
 
-.color-button:hover, .highlight-btn:hover {
+.highlight-btn:hover {
   box-shadow: 0 0 20px 3px #d4d01d;
 }
 
-.color-button:focus, .highlight-btn:focus {
+.highlight-btn:focus {
   outline-style: none;
   box-shadow: 0 0 20px 3px #d4d01d;
 }
 
-#black-btn {
-  background-color: black;
-  border-color: black;
-}
-
-#blue-btn {
-  background-color: #1942b9;
-  border-color: #1942b9;
-}
-
-#green-btn {
-  background-color: green;
-  border-color: green;
-}
-
-#yellow-btn {
-  background-color: yellow;
-  border-color: yellow;
-  color: black;
-}
-
-#red-btn {
-  background-color: #a4090c;
-  border-color: #a4090c;
+#frameColorDropdown {
+  width: 300px;
+  height: 30px;
 }
 
 #show-card-box-input {

@@ -4,14 +4,18 @@
 <div id="page-content">
   <div id="form-content">
 
-    <div id="color-button-holder" class="large-bottom-margin">
-    <span id="color-buttons">
-      <button id="black-btn" type="button" class="color-button" (click)="setFrameColor('black')"></button>
-      <button id="blue-btn" type="button" class="color-button" (click)="setFrameColor('blue')"></button>
-      <button id="green-btn" type="button" class="color-button" (click)="setFrameColor('green')"></button>
-      <button id="red-btn" type="button" class="color-button" (click)="setFrameColor('red')"></button>
-      <button id="yellow-btn" type="button" class="color-button" (click)="setFrameColor('yellow')"></button>
-    </span>
+    <div class="large-bottom-margin">
+      <label for="frameColorDropdown"></label>
+      <select id="frameColorDropdown" #target (change)="setFrameColor($event, target)"
+              [ngStyle]="{'background-color':frameColor.backgroundColor, 'color':frameColor.fontColor}">
+        <option
+          *ngFor="let op of frameColorOptions; let i = index"
+          [ngStyle]="{'background-color': op.backgroundColor, 'color': op.fontColor}"
+          value="{{i}}"
+        >
+          {{op.name}}
+        </option>
+      </select>
     </div>
 
     <div class="large-bottom-margin">
@@ -95,7 +99,7 @@
           <br/>
           <div id="text-cost-adder">
             <p-dropdown
-              [options]="colorOptions"
+              [options]="costColorOptions"
               [(ngModel)]="textCostColor"
               optionLabel="name"
               placeholder="Cost Color"
@@ -107,7 +111,7 @@
               type="number"
               pInputText>
             <button id="add-text-cost-btn" pButton type="button" label="+" class="ui-button-rounded"
-            (click)="addCostToTextFromUI()"></button>
+                    (click)="addCostToTextFromUI()"></button>
           </div>
         </p-accordionTab>
       </p-accordion>
@@ -290,7 +294,9 @@
     <li>If you want to use a custom color, you may select a color using the custom color picker.</li>
     <li>To clear highlighting, hit the green trash can button.</li>
     <h4>Costs</h4>
-    <li>To add a cost to a card skill, you can select a color from the drop-down and input the amount of the color needed.</li>
+    <li>To add a cost to a card skill, you can select a color from the drop-down and input the amount of the color
+      needed.
+    </li>
     <li>You may also add costs to the skill area by typing $$$ followed by the first letter of the color (use N for
       color-less), and then the cost.
     </li>
