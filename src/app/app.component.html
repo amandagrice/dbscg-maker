@@ -144,18 +144,18 @@
     </span>
 
       <span class="ui-float-label cost-input">
-      <input
-        [(ngModel)]="specifiedCost"
-        id="specified-cost-input"
-        [disabled]="cardColor === 'black'"
-        type="number"
-        size="30"
-        pInputText
-        [min]="0"
-        (ngModelChange)="setDrops()"
-      >
-      <label for="specified-cost-input">Specified Cost</label>
-    </span>
+        <input
+          [(ngModel)]="specifiedCost"
+          id="specified-cost-input"
+          [disabled]="cardColor === 'black'"
+          type="number"
+          size="30"
+          pInputText
+          [min]="0"
+          (ngModelChange)="setDrops()"
+        >
+        <label for="specified-cost-input">Specified Cost</label>
+      </span>
     </div>
 
     <div class="large-bottom-margin">

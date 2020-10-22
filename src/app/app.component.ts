@@ -109,7 +109,8 @@ export class AppComponent {
   specialTrait: string;
   era: string;
   totalCost: number;
-  specifiedCost: number;
+  basicColors = ['blue', 'green', 'red', 'yellow'];
+  specifiedCost: number[] = [0, 0, 0, 0]; // blue, green, red, yellow
   combos: Combo[] = [
     {name: '0 cost + 5,000', cost: '/combos/combocost0.png', power: '/combos/combo5k.png'},
     {name: '0 cost + 10,000', cost: '/combos/combocost0.png', power: '/combos/combo10k.png'},
@@ -356,6 +357,14 @@ export class AppComponent {
     this.removeHighlight();
   }
 
+  getSum(numArr) {
+    let sum = 0;
+    for (let i = 0; i < numArr.length; i++) {
+      sum += numArr[i]
+    }
+    return sum;
+  }
+
   setDrops() {
     if (this.cardColor !== 'black') {
       document.getElementById('specified-cost').innerHTML = '';
@@ -363,27 +372,30 @@ export class AppComponent {
       const maxPosition = 2 * Math.PI / 3;
       let delta = this.calculateDistanceBetweenDrops(minPosition, maxPosition);
       let currentPosition = minPosition;
-      for (let i = 0; i < this.specifiedCost; i++) {
-        this.createDropAtPosition(currentPosition);
-        currentPosition += delta;
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < this.specifiedCost[i]; j++) {
+          this.createDropAtPosition(currentPosition, this.basicColors[i]);
+          currentPosition += delta;
+        }
       }
     }
   }
 
   private calculateDistanceBetweenDrops(minPosition, maxPosition) {
-    if (this.specifiedCost < 6) {
+    let totalSpecifiedCost: number = this.getSum(this.specifiedCost);
+    if (totalSpecifiedCost < 6) {
       return Math.PI / 6;
     } else {
-      return (maxPosition - minPosition) / this.specifiedCost;
+      return (maxPosition - minPosition) / totalSpecifiedCost;
     }
   }
 
-  private createDropAtPosition(pos) {
+  private createDropAtPosition(pos, color) {
     const costAreaRadius = 40;
     const drop: any = document.createElement('img');
     let x = Math.round(costAreaRadius * (Math.cos(pos)));
     let y = Math.round(costAreaRadius * (Math.sin(pos)));
-    drop.src = this.assets + this.colorResources[this.cardColor]['drop'];
+    drop.src = this.assets + this.colorResources[color]['drop'];
     drop.style.position = "absolute";
     drop.posx = x + 'px';
     drop.posy = y + 'px';
