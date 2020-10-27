@@ -219,8 +219,8 @@ textarea {
   left: 25px;
 }
 
-#total-cost-input, #specified-cost-input {
-  width: 145px;
+#total-cost-input, .specified-cost-input {
+  width: 58px;
 }
 
 #character, #special-trait, #era {

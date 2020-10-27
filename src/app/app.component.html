@@ -138,6 +138,7 @@
         type="number"
         size="30"
         pInputText
+        [min]="0"
         (ngModelChange)="scaleTextField('total-cost', 43)"
       >
       <label for="total-cost-input">Total Cost</label>
@@ -145,16 +146,58 @@
 
       <span class="ui-float-label cost-input">
         <input
-          [(ngModel)]="specifiedCost"
-          id="specified-cost-input"
+          [(ngModel)]="specifiedCost[0]"
+          class="specified-cost-input"
+          id="specified-cost-blue"
           [disabled]="cardColor === 'black'"
           type="number"
-          size="30"
           pInputText
           [min]="0"
           (ngModelChange)="setDrops()"
         >
-        <label for="specified-cost-input">Specified Cost</label>
+        <label for="specified-cost-blue">Blue</label>
+      </span>
+
+      <span class="ui-float-label cost-input">
+        <input
+          [(ngModel)]="specifiedCost[1]"
+          id="specified-cost-green"
+          class="specified-cost-input"
+          [disabled]="cardColor === 'black'"
+          type="number"
+          pInputText
+          [min]="0"
+          (ngModelChange)="setDrops()"
+        >
+        <label for="specified-cost-green">Green</label>
+      </span>
+
+      <span class="ui-float-label cost-input">
+        <input
+          [(ngModel)]="specifiedCost[2]"
+          id="specified-cost-red"
+          class="specified-cost-input"
+          [disabled]="cardColor === 'black'"
+          type="number"
+          pInputText
+          [min]="0"
+          (ngModelChange)="setDrops()"
+        >
+        <label for="specified-cost-red">Red</label>
+      </span>
+
+      <span class="ui-float-label cost-input">
+        <input
+          [(ngModel)]="specifiedCost[3]"
+          id="specified-cost-yellow"
+          class="specified-cost-input"
+          [disabled]="cardColor === 'black'"
+          type="number"
+          pInputText
+          [min]="0"
+          (ngModelChange)="setDrops()"
+        >
+        <label for="specified-cost-yellow">Yellow</label>
       </span>
     </div>
 

@@ -108,7 +108,7 @@ export class AppComponent {
   character: string;
   specialTrait: string;
   era: string;
-  totalCost: number;
+  totalCost: number = 0;
   basicColors = ['blue', 'green', 'red', 'yellow'];
   specifiedCost: number[] = [0, 0, 0, 0]; // blue, green, red, yellow
   combos: Combo[] = [
