@@ -441,3 +441,15 @@ image-cropper {
   margin-left: 5px;
   vertical-align: bottom;
 }
+
+#cropper-area {
+  border: 2px solid black;
+  height: 500px;
+  width: 100%;
+}
+
+#upload-pic-text {
+  margin-top: 200px;
+  text-align: center;
+  width: 100%;
+}

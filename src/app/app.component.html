@@ -301,6 +301,7 @@
          alt="save changes">
     <br/>
     <div id="cropper-area">
+      <div id="upload-pic-text" [style.display]="showCropper ? 'none' : 'inline-block'">Please upload a picture.</div>
       <image-cropper
         [imageChangedEvent]="imageChangedEvent"
         [maintainAspectRatio]="true"
@@ -312,7 +313,6 @@
         outputType="base64"
         (imageCropped)="imageCropped($event)"
         (imageLoaded)="imageLoaded()"
-        [style.display]="showCropper ? null : 'none'"
         [alignImage]="'left'"
       ></image-cropper>
     </div>
