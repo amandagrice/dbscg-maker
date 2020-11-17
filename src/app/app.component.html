@@ -50,74 +50,7 @@
       <label for="power-input">Power</label>
     </span>
     </div>
-    <br/>
-
-    <div class="large-bottom-margin">
-      <span class="ui-float-label">
-      <label for="card-text-input"></label>
-        <textarea
-          id="card-text-input"
-          [(ngModel)]="skill"
-          rows="5" cols="30"
-          pInputTextarea
-          autoResize="autoResize"
-          (ngModelChange)="removeHighlight()"
-          placeholder="Skill"
-        >
-      </textarea>
-    </span>
-
-      <p-accordion [style]="{width: '300px'}">
-        <p-accordionTab header="Edit Card Text">
-          <span id="show-card-box-input">
-            <label for="show-card-box-switch">Show Card Text Box:</label>
-            <p-inputSwitch id="show-card-box-switch" [(ngModel)]="showCardTextBox"></p-inputSwitch>
-          </span>
-          <img id="highlight-help" src="../assets/icons/information.svg" alt="explain highlights"
-               (click)="this.displayHighlightHelp = true">
-          <br/>
-          <button id="blue-highlight-btn" type="button" class="highlight-btn"
-                  (click)="addKeywordToList('#00BFFF')"></button>
-          <button id="red-highlight-btn" type="button" class="highlight-btn"
-                  (click)="addKeywordToList('#ff0a16')"></button>
-          <button id="yellow-highlight-btn" type="button" class="highlight-btn"
-                  (click)="addKeywordToList('#d59e2c')"></button>
-          <button id="pink-highlight-btn" type="button" class="highlight-btn"
-                  (click)="addKeywordToList('#d52298')"></button>
-          <button id="bright-yellow-highlight-btn" type="button" class="highlight-btn"
-                  (click)="addKeywordToList('#ffff00')"></button>
-          <button id="green-highlight-btn" type="button" class="highlight-btn"
-                  (click)="addKeywordToList('#0a832d')"></button>
-          <br/>
-          <span>Custom Color: <p-colorPicker [(ngModel)]="skillHex"
-                                             (ngModelChange)="addKeywordToList(skillHex)"></p-colorPicker></span>
-          <br/>
-          <button id="auto-highlight" pButton type="button" label="Auto Highlight Keywords" class="ui-button-rounded"
-                  (click)="formatCardText()"></button>
-          <img id="clear-highlighting" src="../assets/icons/clearChanges.svg" alt="clear highlights"
-               (click)="clearHighlights()">
-          <br/>
-          <div id="text-cost-adder">
-            <p-dropdown
-              [options]="costColorOptions"
-              [(ngModel)]="textCostColor"
-              optionLabel="name"
-              placeholder="Cost Color"
-              autoWidth="true">
-            </p-dropdown>
-            <input
-              [(ngModel)]="textCostAmount"
-              id="text-cost-amount"
-              type="number"
-              pInputText>
-            <button id="add-text-cost-btn" pButton type="button" label="+" class="ui-button-rounded"
-                    (click)="addCostToTextFromUI()"></button>
-          </div>
-        </p-accordionTab>
-      </p-accordion>
-
-
-    </div>
+    <br />
 
     <div class="large-bottom-margin">
       <p-dropdown
@@ -200,6 +133,71 @@
         <label for="specified-cost-yellow">Yellow</label>
       </span>
     </div>
+    <hr />
+    <div class="large-bottom-margin">
+      <span class="ui-float-label">
+      <label for="card-text-input"></label>
+        <textarea
+          id="card-text-input"
+          [(ngModel)]="skill"
+          rows="5" cols="30"
+          pInputTextarea
+          autoResize="autoResize"
+          (ngModelChange)="removeHighlight()"
+          placeholder="Skill"
+        >
+      </textarea>
+    </span>
+      <div>
+      <input id="show-card-box-switch" type="checkbox" [(ngModel)]="showCardTextBox"/>
+      <label for="show-card-box-switch">Show Card Text Box:</label>
+      <img id="highlight-help" src="../assets/icons/information.svg" alt="explain highlights"
+           (click)="this.displayHighlightHelp = true">
+        <div>
+          <br/>
+        <button id="auto-highlight" pButton type="button" label="Auto Highlight Keywords" class="ui-button-rounded"
+                (click)="formatCardText()"></button>
+        <img id="clear-highlighting" src="../assets/icons/clearChanges.svg" alt="clear highlights"
+             (click)="clearHighlights()">
+        </div>
+
+        <button id="blue-highlight-btn" type="button" class="highlight-btn"
+                (click)="addKeywordToList('#00BFFF')"></button>
+        <button id="red-highlight-btn" type="button" class="highlight-btn"
+                (click)="addKeywordToList('#ff0a16')"></button>
+        <button id="yellow-highlight-btn" type="button" class="highlight-btn"
+                (click)="addKeywordToList('#d59e2c')"></button>
+        <button id="pink-highlight-btn" type="button" class="highlight-btn"
+                (click)="addKeywordToList('#d52298')"></button>
+        <button id="bright-yellow-highlight-btn" type="button" class="highlight-btn"
+                (click)="addKeywordToList('#ffff00')"></button>
+        <button id="green-highlight-btn" type="button" class="highlight-btn"
+                (click)="addKeywordToList('#0a832d')"></button>
+      <span>Custom: <p-colorPicker [(ngModel)]="skillHex" (ngModelChange)="addKeywordToList(skillHex)"></p-colorPicker></span>
+        <br />
+
+      <div id="text-cost-adder">
+        <p-dropdown
+          id="skill-cost-dropdown"
+          [options]="costColorOptions"
+          [(ngModel)]="textCostColor"
+          optionLabel="name"
+          placeholder="Cost Color"
+          [style]="{'width':'191px'}">
+        </p-dropdown>
+        <input
+          [(ngModel)]="textCostAmount"
+          id="text-cost-amount"
+          type="number"
+          pInputText>
+        <button id="add-text-cost-btn" pButton type="button" label="+" class="ui-button-rounded"
+                (click)="addCostToTextFromUI()"></button>
+      </div>
+      </div>
+    </div>
+
+    <hr />
+    <br />
 
     <div class="large-bottom-margin">
     <span class="ui-float-label">
